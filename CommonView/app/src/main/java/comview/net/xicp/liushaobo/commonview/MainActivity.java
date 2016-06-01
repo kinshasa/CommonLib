@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         NoTitleDialog noTitleDialog = new NoTitleDialog(getApplicationContext());
-        noTitleDialog.show();
+        //noTitleDialog.show();
     }
+
+
 }
