@@ -1,4 +1,4 @@
-package net.xicp.liushaobo.framedemo.ui;
+package net.xicp.liushaobo.framedemo.ui.baseui;
 
 import android.support.v7.app.AppCompatActivity;
 

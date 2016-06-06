@@ -1,4 +1,4 @@
-package net.xicp.liushaobo.comlib.view;
+package net.xicp.liushaobo.comlib.view.custom;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;
