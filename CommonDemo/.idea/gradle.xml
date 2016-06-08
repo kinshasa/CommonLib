@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/comlib" />
             <option value="$PROJECT_DIR$/framedemo" />
+            <option value="$PROJECT_DIR$/pullrefresh" />
           </set>
         </option>
         <option name="myModules">
@@ -20,6 +21,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/comlib" />
             <option value="$PROJECT_DIR$/framedemo" />
+            <option value="$PROJECT_DIR$/pullrefresh" />
           </set>
         </option>
       </GradleProjectSettings>

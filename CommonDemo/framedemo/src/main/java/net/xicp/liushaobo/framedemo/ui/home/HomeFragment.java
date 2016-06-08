@@ -7,6 +7,7 @@ import net.xicp.liushaobo.framedemo.ui.baseui.LoadingFragment;
  */
 public class HomeFragment extends LoadingFragment {
 
+    //456 822 341
 
     @Override
     protected void initHeadView() {

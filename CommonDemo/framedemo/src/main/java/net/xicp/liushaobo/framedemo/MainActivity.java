@@ -13,9 +13,9 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 
 import net.xicp.liushaobo.comlib.utils.L;
 import net.xicp.liushaobo.comlib.view.custom.CustomViewPager;
-import net.xicp.liushaobo.framedemo.ui.home.CouponFragment;
+import net.xicp.liushaobo.framedemo.ui.others.CouponFragment;
 import net.xicp.liushaobo.framedemo.ui.home.HomeFragment;
-import net.xicp.liushaobo.framedemo.ui.home.UserFragment;
+import net.xicp.liushaobo.framedemo.ui.user.UserFragment;
 
 import java.util.ArrayList;
 

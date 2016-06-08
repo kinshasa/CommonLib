@@ -1,1 +1,1 @@
-include ':app', ':framedemo', ':comlib'
+include ':app', ':framedemo', ':comlib', ':pullrefresh', ':pullrefresh'

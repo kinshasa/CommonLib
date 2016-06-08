@@ -1,11 +1,11 @@
-package net.xicp.liushaobo.framedemo.ui.home;
+package net.xicp.liushaobo.framedemo.ui.user;
 
 import net.xicp.liushaobo.framedemo.ui.baseui.LoadingFragment;
 
 /**
  * Created by liushaobo.xicp.net on 2016/6/6.
  */
-public class CouponFragment extends LoadingFragment {
+public class UserFragment extends LoadingFragment {
 
 
     @Override
@@ -35,6 +35,6 @@ public class CouponFragment extends LoadingFragment {
 
     @Override
     protected boolean isDataNotLoad() {
-        return true;
+        return false;
     }
 }
