@@ -38,11 +38,7 @@ public class MainActivity extends AppCompatActivity{
         if(confirmDialog == null){
             confirmDialog = new ConfirmDialog(context);
         }
-        if(confirmDialog.isShowing()){
-            confirmDialog.hide();
-        }else{
-            confirmDialog.show();
-        }
+        confirmDialog.show();
     }
 
 
