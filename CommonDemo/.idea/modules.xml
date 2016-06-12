@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/comlib/comlib.iml" filepath="$PROJECT_DIR$/comlib/comlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/framedemo/framedemo.iml" filepath="$PROJECT_DIR$/framedemo/framedemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/pulltorefreshdemo/pulltorefreshdemo.iml" filepath="$PROJECT_DIR$/pulltorefreshdemo/pulltorefreshdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pulltorefreshlib/pulltorefreshlib.iml" filepath="$PROJECT_DIR$/pulltorefreshlib/pulltorefreshlib.iml" />
     </modules>
   </component>
 </project>

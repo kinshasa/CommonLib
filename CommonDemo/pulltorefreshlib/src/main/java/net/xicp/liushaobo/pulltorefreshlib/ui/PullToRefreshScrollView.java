@@ -1,4 +1,4 @@
-package net.xicp.liushaobo.pulltorefreshdemo.ui;
+package net.xicp.liushaobo.pulltorefreshlib.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -43,7 +43,7 @@ public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
     }
 
     /**
-     * @see net.xicp.liushaobo.pulltorefreshdemo.ui.PullToRefreshBase#createRefreshableView(Context, AttributeSet)
+     * @see net.xicp.liushaobo.pulltorefreshlib.ui.PullToRefreshBase#createRefreshableView(Context, AttributeSet)
      */
     @Override
     protected ScrollView createRefreshableView(Context context, AttributeSet attrs) {
@@ -52,7 +52,7 @@ public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
     }
 
     /**
-     * @see net.xicp.liushaobo.pulltorefreshdemo.ui.PullToRefreshBase#isReadyForPullDown()
+     * @see net.xicp.liushaobo.pulltorefreshlib.ui.PullToRefreshBase#isReadyForPullDown()
      */
     @Override
     protected boolean isReadyForPullDown() {
@@ -60,7 +60,7 @@ public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
     }
 
     /**
-     * @see net.xicp.liushaobo.pulltorefreshdemo.ui.PullToRefreshBase#isReadyForPullUp()
+     * @see net.xicp.liushaobo.pulltorefreshlib.ui.PullToRefreshBase#isReadyForPullUp()
      */
     @Override
     protected boolean isReadyForPullUp() {
