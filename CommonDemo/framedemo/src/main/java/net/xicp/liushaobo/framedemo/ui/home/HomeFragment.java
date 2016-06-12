@@ -16,6 +16,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import net.xicp.liushaobo.comlib.http.AsyncListener;
+import net.xicp.liushaobo.comlib.http.HttpRequest;
 import net.xicp.liushaobo.comlib.utils.L;
 import net.xicp.liushaobo.framedemo.ui.baseui.LoadingFragment;
 import net.xicp.liushaobo.pulltorefreshlib.ui.PullToRefreshBase;
@@ -24,7 +26,10 @@ import net.xicp.liushaobo.pulltorefreshlib.ui.PullToRefreshListView;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by liushaobo.xicp.net on 2016/6/6.
@@ -98,20 +103,9 @@ public class HomeFragment extends LoadingFragment {
     @Override
     protected void initLogic() {
         mPullListView.doPullRefreshing(true, 500);
-        RequestQueue mQueue = Volley.newRequestQueue(context);
-        StringRequest stringRequest = new StringRequest("http://www.baidu.com",
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        L.v(response);
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                L.v(error.getMessage(), error);
-            }
-        });
-        mQueue.add(stringRequest);
+
+        //HttpRequest.getInstance().request(context,"http://api.carisok.com", null,null);
+
     }
 
     @Override
