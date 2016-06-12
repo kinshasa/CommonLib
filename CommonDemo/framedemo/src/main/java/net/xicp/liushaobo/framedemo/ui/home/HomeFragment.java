@@ -1,12 +1,20 @@
 package net.xicp.liushaobo.framedemo.ui.home;
 
+import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import net.xicp.liushaobo.comlib.utils.L;
 import net.xicp.liushaobo.framedemo.ui.baseui.LoadingFragment;
@@ -23,6 +31,8 @@ import java.util.LinkedList;
  */
 public class HomeFragment extends LoadingFragment {
 
+
+    private Context context;
     private ListView mListView;
     private PullToRefreshListView mPullListView;
     private ArrayAdapter<String> mAdapter;
@@ -33,30 +43,38 @@ public class HomeFragment extends LoadingFragment {
     private static final int mLoadDataCount = 10;
     @Override
     protected void initHeadView() {
+
+        context = getContext();
         L.v();
 
     }
 
     @Override
     protected void initBodyView() {
-        mPullListView = new PullToRefreshListView(getContext());
+        mPullListView = new PullToRefreshListView(context);
         mPullListView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         setBodyView(mPullListView);
 
+
+
+    }
+
+    @Override
+    protected void initUIWidget() {
         mPullListView.setPullLoadEnabled(false);
         mPullListView.setScrollLoadEnabled(true);
 
         mCurIndex = mLoadDataCount;
         mListItems = new LinkedList<String>();
         mListItems.addAll(Arrays.asList(mStrings).subList(0, mCurIndex));
-        mAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, mListItems);
+        mAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, mListItems);
         mListView = mPullListView.getRefreshableView();
         mListView.setAdapter(mAdapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
                 String text = mListItems.get(position) + ", index = " + (position + 1);
-                Toast.makeText(getContext(), text, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -75,18 +93,25 @@ public class HomeFragment extends LoadingFragment {
         });
         setLastUpdateTime();
 
-        mPullListView.doPullRefreshing(true, 500);
-
-    }
-
-    @Override
-    protected void initUIWidget() {
-
     }
 
     @Override
     protected void initLogic() {
-
+        mPullListView.doPullRefreshing(true, 500);
+        RequestQueue mQueue = Volley.newRequestQueue(context);
+        StringRequest stringRequest = new StringRequest("http://www.baidu.com",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        L.v(response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                L.v(error.getMessage(), error);
+            }
+        });
+        mQueue.add(stringRequest);
     }
 
     @Override
