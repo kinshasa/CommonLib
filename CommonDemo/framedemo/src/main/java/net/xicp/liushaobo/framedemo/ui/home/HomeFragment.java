@@ -2,6 +2,7 @@ package net.xicp.liushaobo.framedemo.ui.home;
 
 import android.os.AsyncTask;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -29,7 +30,7 @@ public class HomeFragment extends LoadingFragment {
     private SimpleDateFormat mDateFormat = new SimpleDateFormat("MM-dd HH:mm");
     private boolean mIsStart = true;
     private int mCurIndex = 0;
-    private static final int mLoadDataCount = 100;
+    private static final int mLoadDataCount = 10;
     @Override
     protected void initHeadView() {
         L.v();
@@ -39,19 +40,12 @@ public class HomeFragment extends LoadingFragment {
     @Override
     protected void initBodyView() {
         mPullListView = new PullToRefreshListView(getContext());
+        mPullListView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         setBodyView(mPullListView);
+
         mPullListView.setPullLoadEnabled(false);
         mPullListView.setScrollLoadEnabled(true);
 
-    }
-
-    @Override
-    protected void initUIWidget() {
-
-    }
-
-    @Override
-    protected void initLogic() {
         mCurIndex = mLoadDataCount;
         mListItems = new LinkedList<String>();
         mListItems.addAll(Arrays.asList(mStrings).subList(0, mCurIndex));
@@ -82,6 +76,17 @@ public class HomeFragment extends LoadingFragment {
         setLastUpdateTime();
 
         mPullListView.doPullRefreshing(true, 500);
+
+    }
+
+    @Override
+    protected void initUIWidget() {
+
+    }
+
+    @Override
+    protected void initLogic() {
+
     }
 
     @Override
@@ -91,7 +96,7 @@ public class HomeFragment extends LoadingFragment {
 
     @Override
     protected boolean isDataNotLoad() {
-        return false;
+        return true;
     }
 
 
@@ -130,7 +135,7 @@ public class HomeFragment extends LoadingFragment {
             mAdapter.notifyDataSetChanged();
             mPullListView.onPullDownRefreshComplete();
             mPullListView.onPullUpRefreshComplete();
-            mPullListView.setHasMoreData(false);
+            mPullListView.setHasMoreData(hasMoreData);
             setLastUpdateTime();
 
             super.onPostExecute(result);
