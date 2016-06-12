@@ -348,6 +348,20 @@ public abstract class LoadingFragment extends BaseFragment {
 			e.printStackTrace();
 		}
 	}
+
+	protected void setBodyView(View view){
+		L.v();
+		try {
+			if(vg_frame_body != null){
+				v_body = view;
+				vg_frame_body.removeAllViews();
+				vg_frame_body.addView(v_body);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
 	protected View getBodyView(){
 		return vg_frame_body;
 	}
