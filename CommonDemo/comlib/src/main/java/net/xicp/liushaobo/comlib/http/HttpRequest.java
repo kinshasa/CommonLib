@@ -10,8 +10,8 @@ import com.android.volley.toolbox.StringRequest;
 
 import net.xicp.liushaobo.comlib.utils.L;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by liushaobo.xicp.net on 2016/6/12.
@@ -27,12 +27,23 @@ public class HttpRequest {
 
         return SingleTonHolder.instance;
     }
-    public void request(final Context context,final String url, final Set<Map<String, Object>> params,
-                         final AsyncListener asyncListener, final int type) {
-        request("GET",context,url, params,  asyncListener, type);
+
+    public void request(final Context context,final String url, final HashMap<String, String> params,
+                        final AsyncListener asyncListener) {
+        request("GET",context,url, params, asyncListener, REQ_TYPE_DEFAULT);
     }
 
-    public void request(final String method,final Context context, final String url, final Set<Map<String, Object>> params,
+    public void request(final Context context, final String url, final HashMap<String, String> params,
+                        final AsyncListener asyncListener, final int type) {
+        request("GET",context,url, params, asyncListener, type);
+    }
+
+    public void request(final String method,final Context context,final String url, final HashMap<String, String> params,
+                        final AsyncListener asyncListener) {
+        request(method,context,url, params, asyncListener, REQ_TYPE_DEFAULT);
+    }
+
+    public void request(final String method, final Context context, final String url, final HashMap<String, String> params,
                         final AsyncListener asyncListener, final int type) {
 
         switch (method) {
@@ -47,7 +58,7 @@ public class HttpRequest {
 
     }
 
-    private void get(final String url, final Set<Map<String, Object>> params,
+    private void get(final String url, final HashMap<String, String> params,
                      final Context context, final AsyncListener asyncListener, final int type) {
 
         switch (type) {
@@ -63,8 +74,8 @@ public class HttpRequest {
 
     }
 
-    private void post(final String url, final Set<Map<String, Object>> params,
-                     final Context context, final AsyncListener asyncListener, final int type) {
+    private void post(final String url, final HashMap<String, String> params,
+                      final Context context, final AsyncListener asyncListener, final int type) {
 
         switch (type) {
             case REQ_TYPE_DEFAULT:
@@ -79,17 +90,21 @@ public class HttpRequest {
 
     }
 
-    private void getByVolley(final String url, final Set<Map<String, Object>> params,
+    private void getByVolley(final String str, final HashMap<String, String> params,
                              final Context context, final AsyncListener asyncListener) {
 
-        StringRequest stringRequest = new StringRequest(url,
+        StringRequest stringRequest = new StringRequest(str,
 
                 new Response.Listener<String>() {
 
                     @Override
                     public void onResponse(String response) {
                         L.v(response);
-                        asyncListener.onComplete(response);
+                        try {
+                            asyncListener.onComplete(response);
+                        }catch (Exception e){
+                            asyncListener.onException(response);
+                        }
                     }
                 },
 
@@ -97,21 +112,25 @@ public class HttpRequest {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        L.v(error.getMessage());
+                        L.v(error);
                         asyncListener.onException(error.getMessage());
                     }
                 })
                 {
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
-                        return (Map<String, String>)params;
+                        return params;
                     }
                 };
+
+        L.v(stringRequest.getUrl());
+
+        L.v(stringRequest.getOriginUrl());
         VolleySingleton.staryVolley(context, stringRequest);
 
     }
 
-    private void postByVolley(final String url, final Set<Map<String, Object>> params,
+    private void postByVolley(final String url, final HashMap<String, String> params,
                               final Context context, final AsyncListener asyncListener) {
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
@@ -136,11 +155,13 @@ public class HttpRequest {
                 {
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
-                        return (Map<String, String>)params;
+                        return params;
                     }
                 };
 
+        L.v(stringRequest.getUrl());
 
+        L.v(stringRequest.getOriginUrl());
         VolleySingleton.staryVolley(context, stringRequest);
 
     }

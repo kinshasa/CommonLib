@@ -2,7 +2,6 @@ package net.xicp.liushaobo.framedemo.ui.home;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -10,15 +9,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.alibaba.fastjson.JSONObject;
 
 import net.xicp.liushaobo.comlib.http.AsyncListener;
 import net.xicp.liushaobo.comlib.http.HttpRequest;
 import net.xicp.liushaobo.comlib.utils.L;
+import net.xicp.liushaobo.framedemo.entry.Store;
 import net.xicp.liushaobo.framedemo.ui.baseui.LoadingFragment;
 import net.xicp.liushaobo.pulltorefreshlib.ui.PullToRefreshBase;
 import net.xicp.liushaobo.pulltorefreshlib.ui.PullToRefreshListView;
@@ -28,8 +24,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
-import java.util.Set;
+import java.util.List;
 
 /**
  * Created by liushaobo.xicp.net on 2016/6/6.
@@ -49,7 +44,7 @@ public class HomeFragment extends LoadingFragment {
     @Override
     protected void initHeadView() {
 
-        context = getContext();
+        context = ctx;
         L.v();
 
     }
@@ -103,8 +98,31 @@ public class HomeFragment extends LoadingFragment {
     @Override
     protected void initLogic() {
         mPullListView.doPullRefreshing(true, 500);
+        HashMap<String, String> mHashMap = new HashMap<String, String>() {
+            {
+                put("keywords", "");
+                put("latitude", "");
+                put("longitude", "");
+                put("region_id", "");
+                put("num", "1");
+                put("order_by", "");
+                put("page", 1 + "");
+            }
+        };
+        L.v(mHashMap);
+        HttpRequest.getInstance().request(context, "http://api.carisok.com/icarapi.php/sstore/get_nearby_sstores/", mHashMap, new AsyncListener() {
+            @Override
+            public void onComplete(String values) {
+                JSONObject json = JSONObject.parseObject(values);
+                List<Store> stores = JSONObject.parseArray(json.getJSONObject("data").getString("data"), Store.class);
+                L.v(stores);
+            }
 
-        //HttpRequest.getInstance().request(context,"http://api.carisok.com", null,null);
+            @Override
+            public void onException(Object exceptionInfo) {
+
+            }
+        });
 
     }
 
