@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "net.xicp.liushaobo.framedemo"
-        minSdkVersion 8
+        minSdkVersion 9
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -26,6 +26,18 @@ dependencies {
     compile project(':comlib')
     compile project(':pulltorefreshlib')
     compile project(':android-volley-master')
-    compile files('libs/fastjson-1.1.15.jar')
-    compile files('libs/fastjson-1.1.15-javadoc.jar')
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.alibaba:fastjson:1.2.12'
+    // If your app supports Android versions before Ice Cream Sandwich (API level 14)
+    compile 'com.facebook.fresco:animated-base-support:0.10.0'
+    // For animated GIF support
+    compile 'com.facebook.fresco:animated-gif:0.10.0'
+    //facebook picture load.
+    compile 'com.facebook.fresco:fresco:0.10.0'
+
+    //SQLite databases
+    compile 'org.greenrobot:greendao:2.2.1'
+
+    //EventBus is a publish/subscribe event bus optimized for Android.
+    compile 'org.greenrobot:eventbus:3.0.0'
 }

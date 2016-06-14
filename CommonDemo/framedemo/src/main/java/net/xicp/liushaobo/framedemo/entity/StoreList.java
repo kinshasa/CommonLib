@@ -1,4 +1,4 @@
-package net.xicp.liushaobo.framedemo.entry;
+package net.xicp.liushaobo.framedemo.entity;
 
 import android.content.Context;
 

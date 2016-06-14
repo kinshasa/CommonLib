@@ -9,6 +9,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
 import net.xicp.liushaobo.comlib.utils.L;
+import net.xicp.liushaobo.comlib.utils.StrUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -93,16 +94,21 @@ public class HttpRequest {
     private void getByVolley(final String str, final HashMap<String, String> params,
                              final Context context, final AsyncListener asyncListener) {
 
-        StringRequest stringRequest = new StringRequest(str,
+        StrUtil strUtil = new StrUtil();
+        String url = strUtil.encodeUrl(str,params).toString();
+
+        StringRequest stringRequest = new StringRequest(url,
 
                 new Response.Listener<String>() {
 
                     @Override
                     public void onResponse(String response) {
                         L.v(response);
+
                         try {
                             asyncListener.onComplete(response);
                         }catch (Exception e){
+                            e.printStackTrace();
                             asyncListener.onException(response);
                         }
                     }
@@ -115,16 +121,9 @@ public class HttpRequest {
                         L.v(error);
                         asyncListener.onException(error.getMessage());
                     }
-                })
-                {
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        return params;
-                    }
-                };
+                });
 
         L.v(stringRequest.getUrl());
-
         L.v(stringRequest.getOriginUrl());
         VolleySingleton.staryVolley(context, stringRequest);
 
@@ -140,7 +139,12 @@ public class HttpRequest {
                     @Override
                     public void onResponse(String response) {
                         L.v(response);
-                        asyncListener.onComplete(response);
+                        try {
+                            asyncListener.onComplete(response);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                            asyncListener.onException(response);
+                        }
                     }
                 },
 
@@ -159,9 +163,6 @@ public class HttpRequest {
                     }
                 };
 
-        L.v(stringRequest.getUrl());
-
-        L.v(stringRequest.getOriginUrl());
         VolleySingleton.staryVolley(context, stringRequest);
 
     }
