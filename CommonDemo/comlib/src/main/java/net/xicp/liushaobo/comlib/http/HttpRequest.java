@@ -94,8 +94,7 @@ public class HttpRequest {
     private void getByVolley(final String str, final HashMap<String, String> params,
                              final Context context, final AsyncListener asyncListener) {
 
-        StrUtil strUtil = new StrUtil();
-        String url = strUtil.encodeUrl(str,params).toString();
+        String url = new StrUtil().encodeUrl(str,params).toString();
 
         StringRequest stringRequest = new StringRequest(url,
 
@@ -109,7 +108,7 @@ public class HttpRequest {
                             asyncListener.onComplete(response);
                         }catch (Exception e){
                             e.printStackTrace();
-                            asyncListener.onException(response);
+                            asyncListener.onException(e);
                         }
                     }
                 },
@@ -124,15 +123,16 @@ public class HttpRequest {
                 });
 
         L.v(stringRequest.getUrl());
-        L.v(stringRequest.getOriginUrl());
         VolleySingleton.staryVolley(context, stringRequest);
 
     }
 
-    private void postByVolley(final String url, final HashMap<String, String> params,
+    private void postByVolley(final String str, final HashMap<String, String> params,
                               final Context context, final AsyncListener asyncListener) {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+        String temp = new StrUtil().encodeUrl(str,params).toString();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, str,
 
                 new Response.Listener<String>() {
 
@@ -163,6 +163,7 @@ public class HttpRequest {
                     }
                 };
 
+        L.v(temp);
         VolleySingleton.staryVolley(context, stringRequest);
 
     }

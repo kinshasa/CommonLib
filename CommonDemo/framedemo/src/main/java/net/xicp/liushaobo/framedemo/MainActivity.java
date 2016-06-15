@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
 
     @ViewInject(R.id.viewpager)
-    private CustomViewPager mViewPager;
+    public CustomViewPager mViewPager;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {

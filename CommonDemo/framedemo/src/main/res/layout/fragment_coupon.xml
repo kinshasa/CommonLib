@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:src="@drawable/tech_v1_2"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="
+            1.实现上述框架搭建\n
+            2.实现主页面延迟加载Fragment\n
+            3.实现列表页下拉刷新\n
+            4.实现数据库增删查\n
+            5.实现EventBus类似观察者模式，如下按钮
+            "
+            />
+        <Button
+            android:id="@+id/btn_eventbus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="点击，右页面会监察事件后下拉刷新"/>
+    </LinearLayout>
+</LinearLayout>
