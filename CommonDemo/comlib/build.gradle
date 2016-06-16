@@ -26,4 +26,5 @@ dependencies {
     compile files('libs/universal-image-loader-1.9.3.jar')
     compile project(':android-volley-master')
     //compile 'org.greenrobot:greendao:2.2.1'
+    compile files('libs/nineoldandroids-2.4.0.jar')
 }

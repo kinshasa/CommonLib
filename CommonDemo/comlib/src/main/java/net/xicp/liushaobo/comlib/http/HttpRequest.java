@@ -24,10 +24,22 @@ public class HttpRequest {
     private static final int REQ_TYPE_THINK_ANDROID = 0x02;
     private static final int REQ_TYPE_VOLLEY = 0x04;
 
+    public static HttpRequest defaultInstance;
+
+    /** Convenience singleton for apps using a process-wide HttpRequest instance. */
     public static HttpRequest getInstance() {
 
-        return SingleTonHolder.instance;
+        if (defaultInstance == null) {
+            synchronized (HttpRequest.class) {
+                if (defaultInstance == null) {
+                    defaultInstance = new HttpRequest();
+                }
+            }
+        }
+        return defaultInstance;
     }
+
+
 
     public void request(final Context context,final String url, final HashMap<String, String> params,
                         final AsyncListener asyncListener) {
@@ -170,9 +182,5 @@ public class HttpRequest {
 
     private void getByThinkAndroid() {
 
-    }
-
-    private static class SingleTonHolder {
-        public static final HttpRequest instance = new HttpRequest();
     }
 }
