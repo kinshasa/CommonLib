@@ -9,5 +9,10 @@ public class BaseActivity extends AppCompatActivity {
 
     private boolean isDebug = false;
 
+    @SuppressWarnings("unused")
+    public void init(){
+
+    }
 
 }
+

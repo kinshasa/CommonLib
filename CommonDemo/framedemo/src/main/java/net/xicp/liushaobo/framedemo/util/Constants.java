@@ -9,7 +9,6 @@ public class Constants {
 
     public final static int DEV_DEBUG_MODE = 0;
 
-    public final static int EVN_CUR_URL = ConstantsReqInterface.REQ_206;
 
 
 

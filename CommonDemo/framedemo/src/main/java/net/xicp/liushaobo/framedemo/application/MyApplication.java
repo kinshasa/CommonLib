@@ -9,9 +9,19 @@ import com.facebook.drawee.backends.pipeline.Fresco;
  */
 public class MyApplication extends Application {
 
+    private static MyApplication instance;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        this.instance=this;
+
+        //初始化图片加载器
         Fresco.initialize(this);
+    }
+
+
+    public  static MyApplication getInstance(){
+        return instance;
     }
 }

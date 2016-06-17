@@ -40,4 +40,8 @@ dependencies {
 
     //EventBus is a publish/subscribe event bus optimized for Android.
     compile 'org.greenrobot:eventbus:3.0.0'
+
+
+    //WebViewJavascriptBridge
+    /*compile 'com.github.lzyzsd:jsbridge:1.0.4'*/
 }
