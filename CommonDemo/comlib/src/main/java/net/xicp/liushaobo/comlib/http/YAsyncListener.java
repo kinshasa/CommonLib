@@ -1,6 +1,6 @@
 package net.xicp.liushaobo.comlib.http;
 
-public interface AsyncListener {
+public interface YAsyncListener {
 	/**
 	 * 当请求成功的时候执行该方法
 	 * 

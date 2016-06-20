@@ -300,7 +300,7 @@ public abstract class LoadingFragment extends BaseFragment {
 	protected abstract void initUIWidget();
 
 	/**
-	 * 6. define Logic and HttpRequest.
+	 * 6. define Logic and YHttpRequest.
 	 */
 	protected abstract void initLogic();
 

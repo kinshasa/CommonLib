@@ -2,37 +2,39 @@ package net.xicp.liushaobo.comlib.http;
 
 import android.content.Context;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-
-import net.xicp.liushaobo.comlib.utils.L;
-import net.xicp.liushaobo.comlib.utils.StrUtil;
-
 import java.util.HashMap;
-import java.util.Map;
 
 /**
- * Created by liushaobo.xicp.net on 2016/6/12.
+ * Created by liushaobo on 2016/6/20.
  */
-public class HttpRequest {
 
+@SuppressWarnings("unused")
+public class HttpRequest implements Http {
+
+    private static final int REQ_TYPE_VOLLEY = 0x01;
+    private static final int REQ_TYPE_THINK_ANDROID = 0x02;
 
     private static final int REQ_TYPE_DEFAULT = 0x01;
-    private static final int REQ_TYPE_THINK_ANDROID = 0x02;
-    private static final int REQ_TYPE_VOLLEY = 0x04;
 
-    public static HttpRequest defaultInstance;
+    /** define custom http request instance. **/
+    protected static HttpRequest Instance;
 
-    /** Convenience singleton for apps using a process-wide HttpRequest instance. */
-    public static HttpRequest getInstance() {
+    /** define default http request instance. **/
+    private static HttpRequest defaultInstance;
+
+    public static HttpRequest getDefaultInstance() {
 
         if (defaultInstance == null) {
             synchronized (HttpRequest.class) {
                 if (defaultInstance == null) {
-                    defaultInstance = new HttpRequest();
+                    switch (REQ_TYPE_DEFAULT){
+                        case REQ_TYPE_VOLLEY:
+                            defaultInstance = new HttpRequestVolleyImpl();
+                            break;
+                        case REQ_TYPE_THINK_ANDROID:
+                            defaultInstance = new HttpRequestThinkAndroidImpl();
+                            break;
+                    }
                 }
             }
         }
@@ -41,146 +43,33 @@ public class HttpRequest {
 
 
 
-    public void request(final Context context,final String url, final HashMap<String, String> params,
-                        final AsyncListener asyncListener) {
-        request("GET",context,url, params, asyncListener, REQ_TYPE_DEFAULT);
-    }
 
     public void request(final Context context, final String url, final HashMap<String, String> params,
-                        final AsyncListener asyncListener, final int type) {
-        request("GET",context,url, params, asyncListener, type);
+                        final onHttpListener listener) {
+        request(context, Method.GET, url, params, listener);
     }
 
-    public void request(final String method,final Context context,final String url, final HashMap<String, String> params,
-                        final AsyncListener asyncListener) {
-        request(method,context,url, params, asyncListener, REQ_TYPE_DEFAULT);
-    }
-
-    public void request(final String method, final Context context, final String url, final HashMap<String, String> params,
-                        final AsyncListener asyncListener, final int type) {
-
+    public void request(final Context context, final int method, final String url, final HashMap<String, String> params,
+                        final onHttpListener listener) {
         switch (method) {
-            case "GET":
+            case Method.GET:
             default:
-                get(url, params, context, asyncListener, type);
+                get(url, params, context, listener);
                 break;
-            case "POST":
-                post(url, params, context, asyncListener, type);
+            case Method.POST:
+                post(url, params, context, listener);
                 break;
         }
 
     }
 
-    private void get(final String url, final HashMap<String, String> params,
-                     final Context context, final AsyncListener asyncListener, final int type) {
-
-        switch (type) {
-            case REQ_TYPE_DEFAULT:
-            case REQ_TYPE_VOLLEY:
-                getByVolley(url, params, context, asyncListener);
-                break;
-            case REQ_TYPE_THINK_ANDROID:
-                getByThinkAndroid();
-                break;
-
-        }
+    @Override
+    public void get(String url, HashMap<String, String> params, Context context, onHttpListener listener) {
 
     }
 
-    private void post(final String url, final HashMap<String, String> params,
-                      final Context context, final AsyncListener asyncListener, final int type) {
-
-        switch (type) {
-            case REQ_TYPE_DEFAULT:
-            case REQ_TYPE_VOLLEY:
-                postByVolley(url, params, context, asyncListener);
-                break;
-            case REQ_TYPE_THINK_ANDROID:
-                getByThinkAndroid();
-                break;
-
-        }
-
-    }
-
-    private void getByVolley(final String str, final HashMap<String, String> params,
-                             final Context context, final AsyncListener asyncListener) {
-
-        String url = new StrUtil().encodeUrl(str,params).toString();
-
-        StringRequest stringRequest = new StringRequest(url,
-
-                new Response.Listener<String>() {
-
-                    @Override
-                    public void onResponse(String response) {
-                        L.v(response);
-
-                        try {
-                            asyncListener.onComplete(response);
-                        }catch (Exception e){
-                            e.printStackTrace();
-                            asyncListener.onException(e);
-                        }
-                    }
-                },
-
-                new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        L.v(error);
-                        asyncListener.onException(error.getMessage());
-                    }
-                });
-
-        L.v(stringRequest.getUrl());
-        VolleySingleton.staryVolley(context, stringRequest);
-
-    }
-
-    private void postByVolley(final String str, final HashMap<String, String> params,
-                              final Context context, final AsyncListener asyncListener) {
-
-        String temp = new StrUtil().encodeUrl(str,params).toString();
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, str,
-
-                new Response.Listener<String>() {
-
-                    @Override
-                    public void onResponse(String response) {
-                        L.v(response);
-                        try {
-                            asyncListener.onComplete(response);
-                        }catch (Exception e){
-                            e.printStackTrace();
-                            asyncListener.onException(response);
-                        }
-                    }
-                },
-
-                new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        L.v(error.getMessage());
-                        asyncListener.onException(error.getMessage());
-                    }
-                })
-                {
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        return params;
-                    }
-                };
-
-        L.v(temp);
-        VolleySingleton.staryVolley(context, stringRequest);
-
-    }
-
-    private void getByThinkAndroid() {
+    @Override
+    public void post(String url, HashMap<String, String> params, Context context, onHttpListener listener) {
 
     }
 }

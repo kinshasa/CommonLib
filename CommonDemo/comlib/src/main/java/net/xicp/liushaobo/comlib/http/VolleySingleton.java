@@ -27,7 +27,7 @@ public class VolleySingleton {
     }
 
 
-    public static void staryVolley(Context context, StringRequest stringRequest) {
+    public static void startVolley(Context context, StringRequest stringRequest) {
         stringRequest.setShouldCache(false);
         stringRequest.setRetryPolicy(new DefaultRetryPolicy(10 * 1000, 0, 1.0f));
         getVolleySingleton(context).mRequestQueue.add(stringRequest);

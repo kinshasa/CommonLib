@@ -11,8 +11,8 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
 
-import net.xicp.liushaobo.comlib.http.AsyncListener;
-import net.xicp.liushaobo.comlib.http.HttpRequest;
+import net.xicp.liushaobo.comlib.http.HttpBase;
+import net.xicp.liushaobo.comlib.http.Http;
 import net.xicp.liushaobo.comlib.utils.L;
 import net.xicp.liushaobo.comlib.utils.T;
 import net.xicp.liushaobo.framedemo.adapter.StoreAdapter;
@@ -175,12 +175,13 @@ public class HomeFragment extends LoadingFragment {
             }
         };
         L.v(mHashMap);
-        HttpRequest.getInstance().request(context, "http://api.carisok.com/icarapi.php/sstore/get_nearby_sstores/", mHashMap, new AsyncListener() {
+        //YHttpRequest.getInstance().request(context, "http://api.carisok.com/icarapi.php/sstore/get_nearby_sstores/", mHashMap, new YAsyncListener() {
+        HttpBase.getDefaultRequest().request(context, "http://api.carisok.com/icarapi.php/sstore/get_nearby_sstores/", mHashMap, new Http.onHttpListener() {
+
             @Override
             public void onComplete(String values) {
                 JSONObject json = JSONObject.parseObject(values);
 
-                //List<Store> data = JSONObject.parseArray(json.getJSONObject("data").getString("data"), Store.class);
                 List<Store> data = formatStores(json.getJSONObject("data").getString("data"));
                 if(page == 0){
                     //如果是下拉刷新或者第一次请求，当请求成功返回时才可以清空列表数据
@@ -201,7 +202,6 @@ public class HomeFragment extends LoadingFragment {
                 mPullListView.onPullDownRefreshComplete();
                 mPullListView.onPullUpRefreshComplete();
                 setLastUpdateTime();
-
             }
 
             @Override
