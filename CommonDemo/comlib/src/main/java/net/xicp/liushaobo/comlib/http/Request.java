@@ -7,21 +7,27 @@ import java.util.HashMap;
 /**
  * Created by liushaobo.xicp.net on 2016/6/13.
  */
-public abstract class Request {
+public class Request {
 
     private static final int REQ_TYPE_DEFAULT = 0x01;
     private static final int REQ_TYPE_THINK_ANDROID = 0x02;
     private static final int REQ_TYPE_VOLLEY = 0x04;
 
+    public static Request defaultInstance;
 
-    private static class SingleTonHolder {
-        public static final HttpRequest instance = new HttpRequest();
+    /** Convenience singleton for apps using a process-wide Request instance. */
+    public static Request getInstance() {
+
+        if (defaultInstance == null) {
+            synchronized (Request.class) {
+                if (defaultInstance == null) {
+                    defaultInstance = new Request();
+                }
+            }
+        }
+        return defaultInstance;
     }
 
-    public static HttpRequest getInstance() {
-
-        return SingleTonHolder.instance;
-    }
 
     public interface onRequestFinishedListener {
         /**
@@ -68,10 +74,14 @@ public abstract class Request {
 
     }
 
-    protected abstract void get(final String url, final HashMap<String, String> params,
-                     final Context context, final onRequestFinishedListener listener, final int type);
+    protected void get(final String url, final HashMap<String, String> params,
+                     final Context context, final onRequestFinishedListener listener, final int type){
 
-    protected abstract void post(final String url, final HashMap<String, String> params,
-                      final Context context, final onRequestFinishedListener listener, final int type);
+    };
+
+    protected void post(final String url, final HashMap<String, String> params,
+                      final Context context, final onRequestFinishedListener listener, final int type){
+
+    };
 
 }
