@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener{
 
     private ArrayList<Fragment> mFragments;
-    private Fragment mHomeFragment, mCouponFragment, mUserFragment;
+    public Fragment mHomeFragment, mCouponFragment, mUserFragment;
 
 
     @ViewInject(R.id.viewpager)

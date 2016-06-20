@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JsBridge测试Demo</title>
+</head>
+<body>
+<style type="text/css">
+    * {
+    margin: 0;
+    padding: 0;
+    }
+
+    ul > li {
+    display: block;
+    text-align: center;
+    list-style: none;
+    background: #ccc;
+    margin: 10px;
+    padding: 8px;
+    }
+</style>
+<ul id="ul">
+    <li>点击，右侧会监察事件后下拉刷新</li>
+
+</ul>
+<script type="text/javascript">
+    var ul = document.getElementById("ul");
+    var li = ul.getElementsByTagName("li");
+    for (var i = 0; i < li.length; i++) {
+        li[i].index = i;
+        li[i].onclick = function () {
+            switch (this.index) {
+                case 0:
+                    alert("test");
+                    MyBridge.service.pullrefresh({
+                    data: '我是来自网页的按钮', onListener: function (res) {
+                    alert('点击按钮了，按钮名称是:' + res)
+                }
+            });
+                    break;
+            }
+        }
+    }
+
+    window.onJsReady = function () {
+        console.log("MyBridge初始化完毕");
+    }
+
+
+</script>
+</body>
+</html>

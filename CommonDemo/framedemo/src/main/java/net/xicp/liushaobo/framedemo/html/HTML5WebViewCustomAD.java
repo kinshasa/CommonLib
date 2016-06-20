@@ -7,12 +7,12 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.webkit.DownloadListener;
 import android.webkit.JavascriptInterface;
 
+import com.apkfuns.jsbridge.JSBridge;
 
 import net.xicp.liushaobo.comlib.utils.T;
 
@@ -23,8 +23,8 @@ import net.xicp.liushaobo.comlib.utils.T;
 public class HTML5WebViewCustomAD extends Activity {
 	private HTML5CustomWebView mWebView;
 	//http://www.zttmall.com/Wapshop/Topic.aspx?TopicId=18
-	private String ad_url = "http://www.baidu.com";
-	private String title="百度一下你就知道";
+	private String ad_url = "file:///android_asset/index.html";
+	private String title="测试";
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -41,16 +41,14 @@ public class HTML5WebViewCustomAD extends Activity {
 			}
 		});
 
-		/*mWebView.registerHandler("submitFromWeb", new BridgeHandler() {
-			@Override
-			public void handler(String data, CallBackFunction function) {
-				Log.i(TAG, "handler = submitFromWeb, data from web = " + data);
-				function.onCallBack("submitFromWeb exe, response data from Java");
-			}
-		});*/
-	          //准备javascript注入
-		mWebView.addJavascriptInterface(
-				new Js2JavaInterface(),"Js2JavaInterface");
+		// JSBridge配置
+		JSBridge.getConfig().setProtocol("MyBridge")
+				.setLoadReadyFuncName("onJsReady")
+				.registerModule(ServiceModule.class, SdkModule.class);
+
+	    //准备javascript注入
+		//mWebView.addJavascriptInterface(new Js2JavaInterface(),"Js2JavaInterface");
+
 		if (savedInstanceState != null) {
 			mWebView.restoreState(savedInstanceState);
 		} else {

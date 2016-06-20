@@ -19,15 +19,17 @@ android {
     }
 }
 
+repositories {
+    //JsBridge-lzyzsd-step1 https://github.com/lzyzsd/JsBridge
+    maven { url "https://jitpack.io" }
+}
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile project(':comlib')
-    compile project(':pulltorefreshlib')
-    compile project(':android-volley-master')
-    compile 'com.google.code.gson:gson:2.6.2'
-    compile 'com.alibaba:fastjson:1.2.12'
+
     // If your app supports Android versions before Ice Cream Sandwich (API level 14)
     compile 'com.facebook.fresco:animated-base-support:0.10.0'
     // For animated GIF support
@@ -42,6 +44,10 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
 
 
-    //WebViewJavascriptBridge
-    /*compile 'com.github.lzyzsd:jsbridge:1.0.4'*/
+    //JsBridge-pengwei1024 https://github.com/pengwei1024/JsBridge
+    compile 'com.apkfuns.jsbridge:jsbridge:1.2.1'
+
+    //JsBridge-lzyzsd-step2  https://github.com/lzyzsd/JsBridge
+    compile 'com.github.lzyzsd:jsbridge:1.0.4'
+
 }

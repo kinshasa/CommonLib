@@ -20,7 +20,6 @@ import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -74,7 +73,7 @@ public class HTML5CustomWebView extends WebView {
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT, Gravity.CENTER);
         mLayout.addView(mBrowserFrameLayout, COVER_SCREEN_PARAMS);
-        mWebChromeClient = new MyWebChromeClient();
+        mWebChromeClient = new MyWebChromeClient(mActivity);
         setWebChromeClient(mWebChromeClient);
         setWebViewClient(new MyWebViewClient());
         WebSettings webSettings = this.getSettings();
@@ -182,8 +181,13 @@ public class HTML5CustomWebView extends WebView {
         return super.onKeyDown(keyCode, event);
     }
 
-    private class MyWebChromeClient extends WebChromeClient {
+    private class MyWebChromeClient extends JSBridgeChromeClient {
         private Bitmap mDefaultVideoPoster;
+
+        MyWebChromeClient(Activity activity) {
+            super(activity);
+        }
+
         @Override
         public void onShowCustomView(View view,
                                      CustomViewCallback callback) {
@@ -245,9 +249,10 @@ public class HTML5CustomWebView extends WebView {
             return super.onJsAlert(view, url, message, result);
 
         }
+
     }
 
-    private class MyWebViewClient extends WebViewClient {
+    private class MyWebViewClient extends JSBridgeViewClient {
         /**
          * 加载过程中 拦截加载的地址url
          * @param view

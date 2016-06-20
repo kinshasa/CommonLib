@@ -130,7 +130,10 @@ public class HomeFragment extends LoadingFragment {
     public void onStart() {
         super.onStart();
         //注册事件
-        EventBus.getDefault().register(this);
+        L.v(EventBus.getDefault().isRegistered(this));
+        if(!EventBus.getDefault().isRegistered(this)){
+            EventBus.getDefault().register(this);
+        }
 
     }
 
@@ -143,6 +146,7 @@ public class HomeFragment extends LoadingFragment {
 
     @Subscribe
     public void onMessageEvent(MessageEvent event){
+        L.v("12345");
         Toast.makeText(getActivity(), "监听，接收传递数据:"+event.message, Toast.LENGTH_SHORT).show();
         mPullListView.doPullRefreshing(true, 0);
     }

@@ -12,12 +12,14 @@ import android.widget.Toast;
 import net.xicp.liushaobo.comlib.utils.L;
 import net.xicp.liushaobo.comlib.utils.T;
 import net.xicp.liushaobo.framedemo.R;
+import net.xicp.liushaobo.framedemo.bus.CouponEvent;
 import net.xicp.liushaobo.framedemo.bus.MessageEvent;
 import net.xicp.liushaobo.framedemo.ui.baseui.LoadingFragment;
 import net.xicp.liushaobo.pulltorefreshlib.ui.PullToRefreshBase;
 import net.xicp.liushaobo.pulltorefreshlib.ui.PullToRefreshListView;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -74,5 +76,30 @@ public class CouponFragment extends LoadingFragment {
     protected boolean isDataNotLoad() {
         return false;
     }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        //注册事件
+        if(!EventBus.getDefault().isRegistered(this)){
+            EventBus.getDefault().register(this);
+        }
+
+    }
+
+    @Override
+    public void onDestroy() {
+        //销毁事件
+        EventBus.getDefault().unregister(this);
+        super.onDestroy();
+    }
+
+    @Subscribe
+    public void onCouponEvent(CouponEvent event){
+        L.v("12345");
+        getBodyView().findViewById(R.id.btn_eventbus).performClick();
+    }
+
 
 }
