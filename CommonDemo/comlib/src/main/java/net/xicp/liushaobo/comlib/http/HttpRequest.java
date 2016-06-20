@@ -54,22 +54,22 @@ public class HttpRequest implements Http {
         switch (method) {
             case Method.GET:
             default:
-                get(url, params, context, listener);
+                get(context, url, params, listener);
                 break;
             case Method.POST:
-                post(url, params, context, listener);
+                post(context, url, params, listener);
                 break;
         }
 
     }
 
     @Override
-    public void get(String url, HashMap<String, String> params, Context context, onHttpListener listener) {
+    public void get(Context context, String url, HashMap<String, String> params, onHttpListener listener) {
 
     }
 
     @Override
-    public void post(String url, HashMap<String, String> params, Context context, onHttpListener listener) {
+    public void post(Context context, String url, HashMap<String, String> params, onHttpListener listener) {
 
     }
 }

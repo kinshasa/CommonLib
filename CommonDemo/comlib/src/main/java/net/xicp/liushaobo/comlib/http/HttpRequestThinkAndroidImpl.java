@@ -3,9 +3,12 @@ package net.xicp.liushaobo.comlib.http;
 import android.content.Context;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import net.xicp.liushaobo.comlib.utils.L;
 import net.xicp.liushaobo.comlib.utils.StrUtil;
@@ -35,8 +38,24 @@ public class HttpRequestThinkAndroidImpl extends HttpRequest {
         return Instance;
     }
 
+    private RequestQueue mRequestQueue;
+    private synchronized RequestQueue getRequestQueue(Context context) {
+        if (mRequestQueue == null) {
+            mRequestQueue = Volley.newRequestQueue(context);
+        }
+        return mRequestQueue;
+    }
+
+    public void startVolley(Context context, StringRequest stringRequest) {
+        stringRequest.setShouldCache(false);
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(10 * 1000, 0, 1.0f));
+        getRequestQueue(context).add(stringRequest);
+
+    }
+
+
     @Override
-    public void get(final String str, final HashMap<String, String> params, final Context context, final onHttpListener listener, final int type) {
+    public void get(final Context context, final String str, final HashMap<String, String> params, final onHttpListener listener) {
 
         String url = new StrUtil().encodeUrl(str,params).toString();
 
@@ -67,12 +86,12 @@ public class HttpRequestThinkAndroidImpl extends HttpRequest {
                 });
 
         L.v(stringRequest.getUrl());
-        VolleySingleton.startVolley(context, stringRequest);
+        startVolley(context, stringRequest);
 
     }
 
     @Override
-    public void post(String str, final HashMap<String, String> params, final Context context, final onHttpListener listener, final int type) {
+    public void post(final Context context, String str, final HashMap<String, String> params, final onHttpListener listener) {
 
         String temp = new StrUtil().encodeUrl(str,params).toString();
 
@@ -108,7 +127,8 @@ public class HttpRequestThinkAndroidImpl extends HttpRequest {
         };
 
         L.v(temp);
-        VolleySingleton.startVolley(context, stringRequest);
+        startVolley(context, stringRequest);
+        //VolleySingleton.startVolley(context, stringRequest);
 
     }
 }

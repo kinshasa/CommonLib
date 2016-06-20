@@ -18,7 +18,6 @@ import java.util.Map;
 @SuppressWarnings("unused")
 public class HttpRequestVolleyImpl extends HttpRequest {
 
-    private RequestQueue mRequestQueue;
 
     /**
      * implements Volley http request instance.
@@ -36,6 +35,7 @@ public class HttpRequestVolleyImpl extends HttpRequest {
         return Instance;
     }
 
+    private RequestQueue mRequestQueue;
     private synchronized RequestQueue getRequestQueue(Context context) {
         if (mRequestQueue == null) {
             mRequestQueue = Volley.newRequestQueue(context);
@@ -51,7 +51,7 @@ public class HttpRequestVolleyImpl extends HttpRequest {
     }
 
     @Override
-    public void get(final String str, final HashMap<String, String> params, final Context context, final onHttpListener listener) {
+    public void get(final Context context, final String str, final HashMap<String, String> params, final onHttpListener listener) {
 
         String url = new StrUtil().encodeUrl(str,params).toString();
 
@@ -87,7 +87,7 @@ public class HttpRequestVolleyImpl extends HttpRequest {
     }
 
     @Override
-    public void post(String str, final HashMap<String, String> params, final Context context, final onHttpListener listener) {
+    public void post(final Context context, String str, final HashMap<String, String> params, final onHttpListener listener) {
 
         String temp = new StrUtil().encodeUrl(str,params).toString();
 
