@@ -20,23 +20,8 @@ import java.util.Map;
  * Created by liushaobo.xicp.net on 2016/6/13.
  */
 @SuppressWarnings("unused")
-public class HttpRequestThinkAndroidImpl extends HttpRequest {
+public class HttpRequestThinkAndroidImpl extends HttpRequestImpl {
 
-    /**
-     * implements ThinkAndroid http request instance.
-     *
-     * */
-    public static HttpRequest getInstance() {
-
-        if ( Instance == null) {
-            synchronized (HttpRequest.class) {
-                if (Instance == null) {
-                    Instance = new HttpRequestThinkAndroidImpl();
-                }
-            }
-        }
-        return Instance;
-    }
 
     private RequestQueue mRequestQueue;
     private synchronized RequestQueue getRequestQueue(Context context) {

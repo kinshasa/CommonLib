@@ -16,24 +16,8 @@ import java.util.Map;
  * Created by liushaobo.xicp.net on 2016/6/13.
  */
 @SuppressWarnings("unused")
-public class HttpRequestVolleyImpl extends HttpRequest {
+public class HttpRequestVolleyImpl extends HttpRequestImpl {
 
-
-    /**
-     * implements Volley http request instance.
-     *
-     * */
-    public static HttpRequest getInstance() {
-
-        if (Instance == null) {
-            synchronized (HttpRequest.class) {
-                if (Instance == null) {
-                    Instance = new HttpRequestVolleyImpl();
-                }
-            }
-        }
-        return Instance;
-    }
 
     private RequestQueue mRequestQueue;
     private synchronized RequestQueue getRequestQueue(Context context) {
