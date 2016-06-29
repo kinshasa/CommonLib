@@ -10,11 +10,12 @@ import java.util.HashMap;
 public interface Http {
 
 
-    void get(final Context context, final String url, final HashMap<String, String> params, final onHttpListener listener);
-
-
-    void post(final Context context,final String url, final HashMap<String, String> params, final onHttpListener listener);
-
+    @SuppressWarnings("unused")
+    void request(final Context context, final String url, final HashMap<String, String> params,
+                        final onHttpListener listener);
+    @SuppressWarnings("unused")
+    void request(final Context context, final int method, final String url, final HashMap<String, String> params,
+                        final onHttpListener listener);
 
     interface onHttpListener {
         /**

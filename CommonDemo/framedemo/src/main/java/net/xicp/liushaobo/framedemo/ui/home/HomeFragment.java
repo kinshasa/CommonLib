@@ -13,6 +13,7 @@ import com.alibaba.fastjson.JSONObject;
 
 import net.xicp.liushaobo.comlib.http.HttpBase;
 import net.xicp.liushaobo.comlib.http.Http;
+import net.xicp.liushaobo.comlib.http.HttpRequestImpl;
 import net.xicp.liushaobo.comlib.utils.L;
 import net.xicp.liushaobo.comlib.utils.T;
 import net.xicp.liushaobo.framedemo.adapter.StoreAdapter;
@@ -175,27 +176,28 @@ public class HomeFragment extends LoadingFragment {
             }
         };
         L.v(mHashMap);
+
         //YHttpRequest.getInstance().request(context, "http://api.carisok.com/icarapi.php/sstore/get_nearby_sstores/", mHashMap, new YAsyncListener() {
-        HttpBase.getDefaultRequest().request(context, "http://api.carisok.com/icarapi.php/sstore/get_nearby_sstores/", mHashMap, new Http.onHttpListener() {
+        HttpBase.getDefaultInstance().request(context, Http.Method.GET,"http://api.carisok.com/icarapi.php/sstore/get_nearby_sstores/", mHashMap, new Http.onHttpListener() {
 
             @Override
             public void onComplete(String values) {
                 JSONObject json = JSONObject.parseObject(values);
 
-                List<Store> data = formatStores(json.getJSONObject("data").getString("data"));
-                if(page == 0){
-                    //如果是下拉刷新或者第一次请求，当请求成功返回时才可以清空列表数据
-                    stores.clear();
-                }
-                stores.addAll(data);
-                storeAdapter.notifyDataSetChanged();
-                if(page == 0){
-                    //save to db
-                    addNote(JSONObject.toJSONString(data),"stores"+page);
-                }
-                page++;
-                if(json.getJSONObject("data").getIntValue("page_count")>page){
-                    mPullListView.setHasMoreData(true);
+                    List<Store> data = formatStores(json.getJSONObject("data").getString("data"));
+                    if(page == 0){
+                        //如果是下拉刷新或者第一次请求，当请求成功返回时才可以清空列表数据
+                        stores.clear();
+                    }
+                    stores.addAll(data);
+                    storeAdapter.notifyDataSetChanged();
+                    if(page == 0){
+                        //save to db
+                        addNote(JSONObject.toJSONString(data),"stores"+page);
+                    }
+                    page++;
+                    if(json.getJSONObject("data").getIntValue("page_count")>page){
+                        mPullListView.setHasMoreData(true);
                 }
 
 

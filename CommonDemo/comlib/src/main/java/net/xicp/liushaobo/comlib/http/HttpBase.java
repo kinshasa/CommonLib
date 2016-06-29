@@ -6,21 +6,22 @@ package net.xicp.liushaobo.comlib.http;
 @SuppressWarnings("unused")
 public class HttpBase {
 
-    @SuppressWarnings("unused")
-    private static final int REQ_TYPE_DEFAULT = 0x01;
-    @SuppressWarnings("unused")
-    private static final int REQ_TYPE_THINK_ANDROID = 0x02;
-    @SuppressWarnings("unused")
-    private static final int REQ_TYPE_VOLLEY = 0x04;
 
-    private static HttpRequest defaultHttpReq = HttpRequest.getDefaultInstance();
+    private static Http defaultHttpReq;
 
 
-    @SuppressWarnings("unused")
-    public static HttpRequest getDefaultRequest(){
+    public static Http getDefaultInstance(){
 
+        if (defaultHttpReq == null) {
+            synchronized (HttpBase.class) {
+                if (defaultHttpReq == null) {
+                    defaultHttpReq = HttpRequestImpl.getDefaultInstance();
+                }
+            }
+        }
         return defaultHttpReq;
     }
+    
 
 
 }
