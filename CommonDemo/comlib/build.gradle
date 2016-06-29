@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        minSdkVersion 8
+        minSdkVersion 9
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -29,4 +29,95 @@ dependencies {
     compile 'com.google.code.gson:gson:2.6.2'
     compile 'com.alibaba:fastjson:1.2.12'
 
+    /** add circular-progress-button from https://github.com/dmytrodanylyk/circular-progress-button
+     *  minSdkVersion 14
+     * */
+    //compile 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
+    /** add Android Persistent Search Library from https://github.com/Quinny898/PersistentSearch
+     *  暂时不能用
+     * */
+    //compile 'com.quinny898.library.persistentsearch:library:1.1.0-SNAPSHOT'
+    /** add Android Swipe Layout from https://github.com/daimajia/AndroidSwipeLayout
+     *  minSdkVersion 14
+     * */
+    /*compile 'com.android.support:recyclerview-v7:23.0.0'
+    compile 'com.android.support:support-v4:23.+'
+    compile "com.daimajia.swipelayout:library:1.2.0@aar"*/
+
+    /** CardView add Card Library from https://github.com/gabrielemariotti/cardslib
+     *  使用Official Google CardView实现了Card阴影圆角效果 用于图片展示相关
+     *  minSdkVersion 14（4.0）
+     * */
+    /*//Core card library
+    compile 'com.github.gabrielemariotti.cards:cardslib-core:2.1.0'
+    //Optional for built-in cards
+    compile 'com.github.gabrielemariotti.cards:cardslib-cards:2.1.0'
+    //Optional for RecyclerView
+    compile 'com.github.gabrielemariotti.cards:cardslib-recyclerview:2.1.0'
+    //Optional for staggered grid view support
+    compile 'com.github.gabrielemariotti.cards:cardslib-extra-staggeredgrid:2.1.0'
+    //Optional for drag and drop support
+    compile 'com.github.gabrielemariotti.cards:cardslib-extra-dragdrop:2.1.0'
+    //Optional for twowayview support (coming soon)
+    //compile 'com.github.gabrielemariotti.cards:cardslib-extra-twoway:2.1.0'*/
+
+    /** Component. add Material Design Android Library from https://github.com/navasmdc/MaterialDesignLibrary
+     *  实现Android 5.0才支持的控件效果，比如扁平、矩形、浮动按钮，复选框以及各式各样的进度指示器等。
+     *  minSdkVersion 8（2.2）
+     * */
+    compile 'com.github.navasmdc:MaterialDesign:1.5@aar'
+
+    /** View. add RippleView from https://github.com/traex/RippleEffect
+     *  能够在Android API 9+上实现Material Design，实现可扩展视图，点击水纹效果
+     *  minSdkVersion 9（2.3）
+     * */
+    compile 'com.github.traex.rippleeffect:library:1.3'
+
+    /** EditText. add MaterialEditText from https://github.com/rengwuxian/MaterialEditText
+     *  Material Design 能实现自定义控件EditText颜色，长度，提示等
+     *  minSdkVersion 9（2.3）
+     * */
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+
+    /** Component. add LollipopShowcase from https://github.com/mikepenz/LollipopShowcase
+     *  Material Design 能实现Lollipop非常炫酷的效果。例如：Toolbar、RecyclerView、
+     *  ActionBarDrawerToggle、Floating Action Button（FAB）、Android Compat Theme等
+     * */
+    //https://codeload.github.com/mikepenz/LollipopShowcase/legacy.zip/master
+
+
+    /** CardViewList. add MaterialList from https://github.com/dexafree/MaterialList
+     *  Material Design.可以接收、存储卡片列表，并根据它们的Android风格和设计模式进行展示
+     *  minSdkVersion 9（2.3）
+     *  failed to resolve
+     * */
+    //compile 'com.github.dexafree:materiallist:3.2.2'
+
+    /** Component. add FloatingActionButton from https://github.com/futuresimple/android-floating-action-button
+     *  Material Design.通过圆形元素与分割线、卡片、各种Bar的直线形成鲜明对比，并使用色彩设定中鲜艳的辅色，带来更具突破性的视觉效果
+     *  minSdkVersion 9（2.3）
+     * */
+    //minSdkVersion 14（4.0）
+    //compile 'com.getbase:floatingactionbutton:1.10.1'
+    //反向兼容minSdkVersion 9（2.3）
+    compile 'net.i2p.android.ext:floatingactionbutton:1.10.1'
+
+    /** Component. add android-ui from https://github.com/markushi/android-ui
+     *  Material Design.android-ui是Android UI组件类库,包含了ActionView、RevealColorView等UI组件
+     *  minSdkVersion 14（4.0）
+     * */
+    //compile 'com.github.markushi:android-ui:1.2'
+
+    /** View. add ObservableScrollView from https://github.com/ksoichiro/Android-ObservableScrollView
+     *  Material Design.用于在滚动视图中观测滚动事件的Android库
+     *  支持ListView、ScrollView、WebView、RecyclerView、GridView组件
+     *  minSdkVersion 9（2.3）
+     * */
+    compile 'com.github.ksoichiro:android-observablescrollview:1.6.0'
+
+/** Icons. add Material design icons from https://github.com/google/material-design-icons
+ *  Material Design.Google开源了包括Material Design系统图标包在内的750个字形，
+ *  涵盖动作、音视频、通信、内容、编辑器、文件、硬件、图像、地图、导航、通知、社交等各个方面
+ * */
+    //https://www.google.com/design/icons/
 }
