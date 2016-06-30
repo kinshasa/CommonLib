@@ -1,4 +1,4 @@
-package net.xicp.liushaobo.comlib.http;
+package net.xicp.liushaobo.comlib.utils.http;
 
 /**
  * Created by liushaobo.xicp.net on 2016/6/13.

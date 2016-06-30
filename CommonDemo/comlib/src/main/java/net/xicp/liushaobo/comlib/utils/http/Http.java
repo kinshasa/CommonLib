@@ -1,4 +1,4 @@
-package net.xicp.liushaobo.comlib.http;
+package net.xicp.liushaobo.comlib.utils.http;
 
 import android.content.Context;
 
@@ -19,10 +19,10 @@ public interface Http {
 
     @SuppressWarnings("unused")
     void request(final Context context, final String url, final HashMap<String, String> params,
-                        final onHttpListener listener);
+                 final onHttpListener listener);
     @SuppressWarnings("unused")
     void request(final Context context, final int method, final String url, final HashMap<String, String> params,
-                        final onHttpListener listener);
+                 final onHttpListener listener);
 
     interface onHttpListener {
         /**
@@ -35,9 +35,9 @@ public interface Http {
         /**
          * 发生异常的时候执行该方法
          *
-         * @param exceptionInfo
+         * @param exception
          */
-        void onException(Object exceptionInfo);
+        void onException(Object exception);
     }
 
     /**

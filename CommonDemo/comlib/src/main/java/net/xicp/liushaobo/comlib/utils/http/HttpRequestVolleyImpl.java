@@ -1,4 +1,4 @@
-package net.xicp.liushaobo.comlib.http;
+package net.xicp.liushaobo.comlib.utils.http;
 
 import android.content.Context;
 
@@ -10,7 +10,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-
 import net.xicp.liushaobo.comlib.utils.log.L;
 import net.xicp.liushaobo.comlib.utils.string.StrUtil;
 
@@ -21,7 +20,7 @@ import java.util.Map;
  * Created by liushaobo.xicp.net on 2016/6/13.
  */
 @SuppressWarnings("unused")
-public class HttpRequestThinkAndroidImpl extends HttpRequestImpl {
+public class HttpRequestVolleyImpl extends HttpRequestImpl {
 
 
     private RequestQueue mRequestQueue;
@@ -38,7 +37,6 @@ public class HttpRequestThinkAndroidImpl extends HttpRequestImpl {
         getRequestQueue(context).add(stringRequest);
 
     }
-
 
     @Override
     public void get(final Context context, final String str, final HashMap<String, String> params, final onHttpListener listener) {

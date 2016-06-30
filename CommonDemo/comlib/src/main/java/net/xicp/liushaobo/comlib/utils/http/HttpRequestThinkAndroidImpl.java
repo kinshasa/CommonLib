@@ -1,4 +1,4 @@
-package net.xicp.liushaobo.comlib.http;
+package net.xicp.liushaobo.comlib.utils.http;
 
 import android.content.Context;
 
@@ -9,7 +9,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
 
 import net.xicp.liushaobo.comlib.utils.log.L;
 import net.xicp.liushaobo.comlib.utils.string.StrUtil;

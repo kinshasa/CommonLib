@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
-import net.xicp.liushaobo.comlib.utils.L;
+import net.xicp.liushaobo.comlib.utils.log.L;
 import net.xicp.liushaobo.framedemo.R;
 import net.xicp.liushaobo.framedemo.entity.Store;
 

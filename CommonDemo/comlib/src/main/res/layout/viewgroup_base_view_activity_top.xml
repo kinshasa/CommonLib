@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/rl_b" style="@style/fullline_view">
+    
+   <LinearLayout android:id="@+id/bvg_top_left" style="@style/rl_top_left">
+       <ImageView android:id="@+id/iv_top_ext" style="@style/img_head"/>
+   </LinearLayout>
+   <LinearLayout android:id="@+id/bvg_top_center" style="@style/rl_top_center">
+       <TextView android:id="@+id/tv_top_title" style="@style/text_head" android:text="当前页面名称"/>
+   </LinearLayout>
+   <LinearLayout android:id="@+id/bvg_top_right"  style="@style/rl_top_right">
+       <ImageView android:id="@+id/iv_top_r" style="@style/img_head" android:src="@drawable/ic_launcher" android:visibility="visible"/>
+   </LinearLayout>
+   
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <!-- 2015.10.21 add @liushaobo -->
+    <string name="empty"></string>
+    <string name="head">模版</string>
+    <string name="home_carno">您的车牌号</string>
+</resources>

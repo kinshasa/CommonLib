@@ -5,37 +5,30 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.util.LogUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
-
-import net.xicp.liushaobo.comlib.utils.L;
+import net.xicp.liushaobo.comlib.activity.BaseViewActivity;
+import net.xicp.liushaobo.comlib.utils.log.L;
 import net.xicp.liushaobo.comlib.view.custom.CustomViewPager;
-import net.xicp.liushaobo.framedemo.ui.others.CouponFragment;
-import net.xicp.liushaobo.framedemo.ui.home.HomeFragment;
-import net.xicp.liushaobo.framedemo.ui.user.UserFragment;
+import net.xicp.liushaobo.framedemo.Fragment.home.HomeFragment;
+import net.xicp.liushaobo.framedemo.Fragment.others.CouponFragment;
+import net.xicp.liushaobo.framedemo.Fragment.user.UserFragment;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener{
+public class MainActivity extends BaseViewActivity implements ViewPager.OnPageChangeListener{
 
     private ArrayList<Fragment> mFragments;
     public Fragment mHomeFragment, mCouponFragment, mUserFragment;
 
 
-    @ViewInject(R.id.viewpager)
     public CustomViewPager mViewPager;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        super.setContentView(R.layout.activity_main);
 
-
-        LogUtils.allowI = true;
-        ViewUtils.inject(this);
+        setBvgBottomVisible(true);
 
         mHomeFragment = new HomeFragment();
         mCouponFragment = new CouponFragment();
@@ -45,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         mFragments.add(mHomeFragment);
         mFragments.add(mCouponFragment);
         mFragments.add(mUserFragment);
+
+        mViewPager = (CustomViewPager)findViewById(R.id.viewpager);
         mViewPager.setOffscreenPageLimit(mFragments.size());
         // 给ViewPager设置适配器
         mViewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager(), mFragments));

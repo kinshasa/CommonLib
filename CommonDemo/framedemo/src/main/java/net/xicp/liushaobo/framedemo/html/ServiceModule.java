@@ -1,33 +1,13 @@
 package net.xicp.liushaobo.framedemo.html;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.graphics.Color;
-import android.location.Location;
-import android.location.LocationListener;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
-import android.view.View;
-import android.webkit.WebView;
-
 import com.apkfuns.jsbridge.JSCallback;
 import com.apkfuns.jsbridge.JsModule;
-import com.apkfuns.jsbridge.JsReturn;
 
-import net.xicp.liushaobo.comlib.utils.L;
-import net.xicp.liushaobo.comlib.utils.T;
-import net.xicp.liushaobo.framedemo.MainActivity;
-import net.xicp.liushaobo.framedemo.R;
-import net.xicp.liushaobo.framedemo.bus.CouponEvent;
-import net.xicp.liushaobo.framedemo.bus.MessageEvent;
-import net.xicp.liushaobo.framedemo.ui.others.CouponFragment;
+import net.xicp.liushaobo.comlib.utils.log.L;
+import net.xicp.liushaobo.framedemo.receiver.CouponEvent;
 
 import org.greenrobot.eventbus.EventBus;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * Created by pengwei on 16/5/6.
@@ -51,5 +31,6 @@ public class ServiceModule implements JsModule {
         EventBus.getDefault().post(new CouponEvent(param));
 
     }
+    
 
 }
