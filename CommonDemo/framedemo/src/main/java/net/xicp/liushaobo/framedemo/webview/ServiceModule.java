@@ -1,4 +1,4 @@
-package net.xicp.liushaobo.framedemo.html;
+package net.xicp.liushaobo.framedemo.webview;
 
 import com.apkfuns.jsbridge.JSCallback;
 import com.apkfuns.jsbridge.JsModule;
@@ -25,7 +25,7 @@ public class ServiceModule implements JsModule {
     public String getModuleName() {
         return "service";
     }
-    public static void pullrefresh(HTML5WebViewCustomAD activity,final String param, final JSCallback callback){
+    public static void pullrefresh(LoadingWebView activity,final String param, final JSCallback callback){
 
         L.v("12345");
         EventBus.getDefault().post(new CouponEvent(param));

@@ -1,1 +1,1 @@
-include ':app', ':framedemo', ':comlib', ':pulltorefreshdemo', ':pulltorefreshlib', ':android-volley-master'
+include ':framedemo', ':comlib', ':pulltorefreshdemo', ':pulltorefreshlib', ':android-volley-master', ':jsbridgelib', ':ViewPagerIndicator'

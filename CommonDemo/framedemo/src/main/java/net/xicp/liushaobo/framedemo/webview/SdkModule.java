@@ -1,4 +1,4 @@
-package net.xicp.liushaobo.framedemo.html;
+package net.xicp.liushaobo.framedemo.webview;
 
 import android.webkit.WebView;
 

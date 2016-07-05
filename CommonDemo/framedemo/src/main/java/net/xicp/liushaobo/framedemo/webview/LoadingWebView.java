@@ -1,4 +1,4 @@
-package net.xicp.liushaobo.framedemo.html;
+package net.xicp.liushaobo.framedemo.webview;
 
 
 import android.app.Activity;
@@ -37,7 +37,7 @@ import java.util.List;
  * Created by liushaobo.xicp.net on 2016/6/17.
  */
 
-public class HTML5CustomWebView extends WebView {
+public class LoadingWebView extends WebView {
     private Context mContext;
     private Activity mActivity;
     private MyWebChromeClient mWebChromeClient;
@@ -109,7 +109,7 @@ public class HTML5CustomWebView extends WebView {
             }
         });
     }
-    public HTML5CustomWebView(Context context,Activity activity,String pTitle,String pUrl) {
+    public LoadingWebView(Context context, Activity activity, String pTitle, String pUrl) {
         super(context);
         mActivity = activity;
         this.mTitle=pTitle;
@@ -117,18 +117,18 @@ public class HTML5CustomWebView extends WebView {
         init(context);
     }
 
-    public HTML5CustomWebView(Context context, Activity activity) {
+    public LoadingWebView(Context context, Activity activity) {
         super(context);
         mActivity = activity;
         init(context);
     }
 
-    public HTML5CustomWebView(Context context, AttributeSet attrs) {
+    public LoadingWebView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public HTML5CustomWebView(Context context, AttributeSet attrs, int defStyle) {
+    public LoadingWebView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(context);
     }
@@ -159,8 +159,8 @@ public class HTML5CustomWebView extends WebView {
      * 关闭该web页面
      */
     public void closeAdWebPage() {
-        if(HTML5CustomWebView.this.canGoBack()){
-            HTML5CustomWebView.this.goBack();
+        if(LoadingWebView.this.canGoBack()){
+            LoadingWebView.this.goBack();
             return;
         }
         this.stopLoading();
@@ -173,8 +173,8 @@ public class HTML5CustomWebView extends WebView {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (HTML5CustomWebView.this.canGoBack()) {
-                HTML5CustomWebView.this.goBack();
+            if (LoadingWebView.this.canGoBack()) {
+                LoadingWebView.this.goBack();
                 return true;
             }
         }
@@ -192,7 +192,7 @@ public class HTML5CustomWebView extends WebView {
         public void onShowCustomView(View view,
                                      CustomViewCallback callback) {
             super.onShowCustomView(view, callback);
-            HTML5CustomWebView.this.setVisibility(View.GONE);
+            LoadingWebView.this.setVisibility(View.GONE);
             if (mCustomView != null) {
                 callback.onCustomViewHidden();
                 return;
@@ -213,7 +213,7 @@ public class HTML5CustomWebView extends WebView {
             mCustomView = null;
             mCustomViewContainer.setVisibility(View.GONE);
             mCustomViewCallback.onCustomViewHidden();
-            HTML5CustomWebView.this.setVisibility(View.VISIBLE);
+            LoadingWebView.this.setVisibility(View.VISIBLE);
             super.onHideCustomView();
         }
 
@@ -342,8 +342,8 @@ public class HTML5CustomWebView extends WebView {
         @Override
         public void onScaleChanged(WebView view, float oldScale, float newScale) {
             super.onScaleChanged(view, oldScale, newScale);
-            HTML5CustomWebView.this.requestFocus();
-            HTML5CustomWebView.this.requestFocusFromTouch();
+            LoadingWebView.this.requestFocus();
+            LoadingWebView.this.requestFocusFromTouch();
         }
 
     }
