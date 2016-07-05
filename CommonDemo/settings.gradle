@@ -1,1 +1,3 @@
 include ':cilent', ':comlib', ':pulltorefreshdemo', ':pulltorefreshlib', ':android-volley-master', ':jsbridgelib', ':ViewPagerIndicator'
+include ':ViewPagerIndicatorLib'
+include ':ViewPagerIndicatorSamples'
