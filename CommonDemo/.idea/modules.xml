@@ -3,10 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CommonDemo.iml" filepath="$PROJECT_DIR$/CommonDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ViewPagerIndicator/ViewPagerIndicator.iml" filepath="$PROJECT_DIR$/ViewPagerIndicator/ViewPagerIndicator.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-volley-master/android-volley-master.iml" filepath="$PROJECT_DIR$/android-volley-master/android-volley-master.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/comlib/comlib.iml" filepath="$PROJECT_DIR$/comlib/comlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/framedemo/framedemo.iml" filepath="$PROJECT_DIR$/framedemo/framedemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jsbridgelib/jsbridgelib.iml" filepath="$PROJECT_DIR$/jsbridgelib/jsbridgelib.iml" />
       <module fileurl="file://$PROJECT_DIR$/pulltorefreshdemo/pulltorefreshdemo.iml" filepath="$PROJECT_DIR$/pulltorefreshdemo/pulltorefreshdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/pulltorefreshlib/pulltorefreshlib.iml" filepath="$PROJECT_DIR$/pulltorefreshlib/pulltorefreshlib.iml" />
     </modules>
