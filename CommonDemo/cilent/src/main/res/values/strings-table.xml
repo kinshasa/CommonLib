@@ -1,0 +1,29 @@
+<resources>
+    <!--Table信息-->
+    <string name="table_home">首页</string>
+    <string name="table_new_car">买车</string>
+    <string name="table_car_life">车生活</string>
+    <string name="table_find">发现</string>
+    <string name="table_user">我的</string>
+
+    <!--用户信息-->
+    <string name="user_mobile_no">手机号</string>
+    <string name="user_password">密码</string>
+    <string name="user_account">账号</string>
+
+    <!--登录注册-->
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="register_now">立即注册</string>
+    <string name="login_quick">快速登录</string>
+    <string name="login_account">账号登录</string>
+    <string name="login_input_mobile_no">请输入手机号码</string>
+    <string name="login_input_password">请输入密码</string>
+    <string name="login_mobile_code">验证码</string>
+    <string name="login_mobile_code_icon">图形验证码</string>
+    <string name="login_get_mobile_code">获取验证码</string>
+    <string name="login_tip_mobile_code">点击获取验证码</string>
+    <string name="login_forget">忘记密码？</string>
+    <string name="login_agreement">温馨提示：未注册大圣车服账号的手机号，登录时将自动注册大圣车服账号，且代表您已同意《大圣车服注册协议》</string>
+
+</resources>

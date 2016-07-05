@@ -6,25 +6,25 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/bvg_top"
+        android:id="@+id/vg_base_top"
         style="@style/ll_top">
 
-        <include layout="@layout/viewgroup_base_view_activity_top" />
+        <include layout="@layout/layout_base_view_top" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/bvg_body"
+        android:id="@+id/vg_base_body"
         style="@style/ll_body">
 
-        <include layout="@layout/viewgroup_view_page_loading" />
+        <include layout="@layout/layout_base_view_body" />
     </LinearLayout>
 
-    <View style="@style/fulldriver_view" />
 
     <LinearLayout
-        android:id="@+id/bvg_bottom"
+        android:id="@+id/vg_base_bottom"
         style="@style/ll_bottom">
 
-        <include layout="@layout/viewgroup_base_view_activity_bottom" />
+        <View style="@style/fulldriver_view" />
+        <include layout="@layout/layout_base_view_bottom" />
     </LinearLayout>
 </LinearLayout>

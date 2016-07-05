@@ -1,12 +1,12 @@
 package net.xicp.liushaobo.comlib.activity;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import net.xicp.liushaobo.comlib.R;
@@ -17,7 +17,7 @@ import net.xicp.liushaobo.comlib.utils.log.L;
  * Created by liusp@gagc.com.cn on 2016/6/24.
  */
 @SuppressWarnings("unused")
-public class BaseViewActivity extends LogActivity {
+public class BaseViewActivity extends BaseActivity {
 
 
     protected Context context = BaseViewActivity.this;
@@ -25,22 +25,25 @@ public class BaseViewActivity extends LogActivity {
     /**
      * 主页面 - 顶部栏 BaseViewGroupTop
      */
-    protected ViewGroup bvg_top;
-    protected ViewGroup bvg_top_left;
-    protected ViewGroup bvg_top_center;
-    protected ViewGroup bvg_top_right;
+    protected ViewGroup vgBaseTop;
+    protected ViewGroup vgBaseTopLeft;
+    protected ViewGroup vgBaseTopCenter;
+    protected ViewGroup vgBaseTopRight;
 
+    /**
+     * 主页面 - 顶部栏 - 标题
+     */
     protected TextView tvTopTitle;
 
     /**
      * 主页面 - 中部 BaseViewGroupBody
      */
-    protected ViewGroup bvg_body;
+    protected ViewGroup vgBaseBody;
 
     /**
      * 主页面 - 底部栏 BaseViewGroupBottom
      */
-    protected ViewGroup bvg_bottom;
+    protected ViewGroup vgBottom;
 
 
     @Override
@@ -56,17 +59,17 @@ public class BaseViewActivity extends LogActivity {
     private final boolean initBaseView() {
         L.v();
         try {
-            bvg_top = (ViewGroup) findViewById(R.id.bvg_top);
-            bvg_body = (ViewGroup) findViewById(R.id.bvg_body);
-            bvg_bottom = (ViewGroup) findViewById(R.id.bvg_bottom);
-            bvg_top_left = (ViewGroup) bvg_top.findViewById(R.id.bvg_top_left);
-            bvg_top_center = (ViewGroup) bvg_top.findViewById(R.id.bvg_top_center);
-            bvg_top_right = (ViewGroup) bvg_top.findViewById(R.id.bvg_top_right);
+            vgBaseTop = (ViewGroup) findViewById(R.id.vg_base_top);
+            vgBaseBody = (ViewGroup) findViewById(R.id.vg_base_body);
+            vgBottom = (ViewGroup) findViewById(R.id.vg_base_bottom);
+            vgBaseTopLeft = (ViewGroup) vgBaseTop.findViewById(R.id.vg_base_top_left);
+            vgBaseTopCenter = (ViewGroup) vgBaseTop.findViewById(R.id.vg_base_top_center);
+            vgBaseTopRight = (ViewGroup) vgBaseTop.findViewById(R.id.vg_base_top_right);
 
-            tvTopTitle = (TextView) bvg_top_center.findViewById(R.id.tv_top_title);
+            tvTopTitle = (TextView) vgBaseTopCenter.findViewById(R.id.tv_top_title);
 
             /**是否隐藏底部栏**/
-            bvg_bottom.setVisibility(View.GONE);
+            vgBottom.setVisibility(View.GONE);
 
         } catch (Exception e) {
             L.e(e);
@@ -85,9 +88,9 @@ public class BaseViewActivity extends LogActivity {
      */
     protected void setBvgBottomVisible(boolean show) {
         if (show) {
-            bvg_bottom.setVisibility(View.VISIBLE);
+            vgBottom.setVisibility(View.VISIBLE);
         } else {
-            bvg_bottom.setVisibility(View.GONE);
+            vgBottom.setVisibility(View.GONE);
         }
     }
 
@@ -106,9 +109,9 @@ public class BaseViewActivity extends LogActivity {
 
     protected final boolean setBaseTopView(View view) {
 
-        if (bvg_top != null && view != null) {
-            bvg_top.removeAllViews();
-            bvg_top.addView(view);
+        if (vgBaseTop != null && view != null) {
+            vgBaseTop.removeAllViews();
+            vgBaseTop.addView(view);
             return true;
         }
         return false;
@@ -128,15 +131,15 @@ public class BaseViewActivity extends LogActivity {
     }
 
     protected ViewGroup getContentView() {
-        return bvg_body;
+        return vgBaseBody;
     }
 
     @Override
     public void setContentView(View view) {
 
-        if (bvg_body != null && view != null) {
-            bvg_body.removeAllViews();
-            bvg_body.addView(view);
+        if (vgBaseBody != null && view != null) {
+            vgBaseBody.removeAllViews();
+            vgBaseBody.addView(view);
         }
     }
 
@@ -155,9 +158,9 @@ public class BaseViewActivity extends LogActivity {
 
     protected final boolean setBaseBottomView(View view) {
 
-        if (bvg_bottom != null && view != null) {
-            bvg_bottom.removeAllViews();
-            bvg_bottom.addView(view);
+        if (vgBottom != null && view != null) {
+            vgBottom.removeAllViews();
+            vgBottom.addView(view);
             return true;
         }
         return false;
@@ -170,7 +173,11 @@ public class BaseViewActivity extends LogActivity {
      * @param resid
      */
     protected void setBaseTopLabel(int resid) {
-        tvTopTitle.setText(resid);
+        try {
+            tvTopTitle.setText(resid);
+        } catch (Exception e) {
+            L.e(e);
+        }
     }
 
     protected void setBaseTopLabel(String str) {
@@ -179,16 +186,37 @@ public class BaseViewActivity extends LogActivity {
 
 
     /**
-     * 隐藏键盘
+     * 设置顶部栏-左边图标
+     * @param resid
      */
-    public void hideSoftKeyboard() {
-        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (inputMethodManager != null) {
-            View localView = getCurrentFocus();
-            if (localView != null && localView.getWindowToken() != null) {
-                IBinder windowToken = localView.getWindowToken();
-                inputMethodManager.hideSoftInputFromWindow(windowToken, 0);
-            }
+    protected void setBaseTopLeftImg(int resid) {
+        ImageView ivBaseTopLeftImg = (ImageView) vgBaseTopLeft.findViewById(R.id.iv_top_left);
+        try {
+            ivBaseTopLeftImg.setImageResource(resid);
+        } catch (Exception e) {
+            L.e(e);
+        }
+    }
+
+    protected void setBaseTopLeftImg(Bitmap bp) {
+        ImageView ivBaseTopLeftImg = (ImageView) vgBaseTopLeft.findViewById(R.id.iv_top_left);
+        try {
+            ivBaseTopLeftImg.setImageBitmap(bp);
+        } catch (Exception e) {
+            L.e(e);
+        }
+    }
+
+    /**
+     * 设置顶部栏-右边图标
+     * @param resid
+     */
+    protected void setVgBaseTopRighttImg(int resid) {
+        ImageView ivBaseTopRightImg = (ImageView) vgBaseTopRight.findViewById(R.id.iv_top_right);
+        try {
+            ivBaseTopRightImg.setImageResource(resid);
+        } catch (Exception e) {
+            L.e(e);
         }
     }
 

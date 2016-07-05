@@ -186,7 +186,7 @@ public abstract class LoadingFragment extends DelayFragment {
 			L.v("ll_frame_base_loading");
 			animat_load_scale = AnimationUtils.loadAnimation(baseActivity, R.anim.baseframe_load_scale); 
 			vg_frame_load = (ViewGroup) vg_frame_whole_page.findViewById(R.id.vg_frame_load);
-			setLoadView(R.layout.viewgroup_view_page_loading);
+			setLoadView(R.layout.layout_base_view_body);
 		}
 		
 	}
@@ -340,7 +340,7 @@ public abstract class LoadingFragment extends DelayFragment {
 		L.v();
 		try {
 			if(vg_frame_body != null){
-				v_body = (ViewGroup) inflater.inflate(rid,null);
+				v_body = inflater.inflate(rid,null);
 				vg_frame_body.removeAllViews();
 				vg_frame_body.addView(v_body);
 			}
