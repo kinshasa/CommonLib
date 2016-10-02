@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <net.xicp.liushaobo.pulltorefreshlib.ui.PullToRefreshWebView
+    <com.pulltorefresh.lib.ui.PullToRefreshWebView
         android:id="@+id/pull_webview"
         android:background="#eeeeee"
         android:layout_width="match_parent"

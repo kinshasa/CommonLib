@@ -4,7 +4,7 @@
     style="@style/ll_gb_loading" >
 
 
-    <net.xicp.liushaobo.comlib.view.custom.ShineTextView
+    <com.android.lib.custom.ShineTextView
         android:layout_margin="10dp"
         android:id="@+id/tv_body"
         style="@style/wrap_view"
