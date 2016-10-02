@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "net.xicp.liushaobo.framedemo"
+        applicationId "com.android.client"
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
@@ -13,7 +13,9 @@ android {
     }
     buildTypes {
         release {
+            //表示打包签名的时候 是正式包 会执行混淆代码
             minifyEnabled false
+            //定义代码混淆文件 注意：proguard-rules.pro要放在主工程的目录下
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -27,9 +29,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile project(':comlib')
-
-
-
-
 
 }

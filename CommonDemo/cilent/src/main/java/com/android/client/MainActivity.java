@@ -12,7 +12,6 @@ import com.android.lib.custom.CustomViewPager;
 import com.android.client.Fragment.home.HomeFragment;
 import com.android.client.Fragment.others.CouponFragment;
 import com.android.client.Fragment.user.UserFragment;
-import com.android.client.R;
 
 import java.util.ArrayList;
 

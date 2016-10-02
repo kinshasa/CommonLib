@@ -16,6 +16,7 @@ allprojects {
     repositories {
         jcenter()
     }
+    buildDir = "../build/${project.name}"
 }
 
 task clean(type: Delete) {
