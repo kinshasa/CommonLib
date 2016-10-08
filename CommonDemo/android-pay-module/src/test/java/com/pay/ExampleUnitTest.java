@@ -1,4 +1,4 @@
-package net.xicp.liushaobo.comlib;
+package com.pay;
 
 import org.junit.Test;
 
