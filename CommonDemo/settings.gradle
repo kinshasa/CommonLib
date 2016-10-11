@@ -1,4 +1,5 @@
-include ':cilent', ':android-log-module'
+include ':cilent'
+include ':android-log-module'
 include ':android-common-lib'
 include ':pullToRefresh'
 include ':android-refresh-view-module'
