@@ -34,7 +34,6 @@ dependencies {
 
     //EventBus
     compile 'org.greenrobot:eventbus:3.0.0'
-    compile project(':XiaonengChatUI')
 
     //react native
     compile 'com.facebook.react:react-native:0.20.+'
