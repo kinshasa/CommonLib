@@ -5,10 +5,10 @@ import android.view.View;
 
 import com.android.lib.fragment.LoadingFragment;
 import com.android.lib.utils.T;
-import com.android.lib.utils.log.L;
 import com.android.client.R;
 import com.android.client.receiver.CouponEvent;
 import com.android.client.receiver.MessageEvent;
+import com.android.log.L;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

@@ -32,4 +32,5 @@ dependencies {
     compile project(':android-upgrade-moudle')
 
 
+    compile project(path: ':android-http-module')
 }

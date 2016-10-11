@@ -2,8 +2,8 @@ package com.android.http;
 
 import android.content.Context;
 
-import com.android.lib.utils.log.L;
-import com.android.lib.utils.string.StrUtil;
+import com.android.http.util.StrUtil;
+import com.android.log.L;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;

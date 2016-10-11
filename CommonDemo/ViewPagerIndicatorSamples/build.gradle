@@ -19,6 +19,6 @@ android {
 }
 
 dependencies {
-    compile project(':ViewPagerIndicator')
+    compile project(':android-viewpager-indicator')
     compile 'com.android.support:support-v4:18.0.0'
 }

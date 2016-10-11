@@ -8,9 +8,9 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.android.log.L;
 import com.facebook.drawee.view.SimpleDraweeView;
 
-import com.android.lib.utils.log.L;
 import com.android.client.R;
 import com.android.client.entity.Store;
 

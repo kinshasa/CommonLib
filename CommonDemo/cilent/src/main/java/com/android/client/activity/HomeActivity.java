@@ -5,13 +5,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 
-import com.viewpagerindicator.TabHomePageIndicator;
 
 import com.android.client.Fragment.home.HomeFragment;
 import com.android.client.R;
 import com.android.client.adapter.TablePagerAdapter;
 import com.android.lib.activity.BaseViewActivity;
 import com.android.lib.fragment.QuickFragment;
+import com.viewpagerindicator.TabHomePageIndicator;
 
 import java.util.ArrayList;
 import java.util.List;

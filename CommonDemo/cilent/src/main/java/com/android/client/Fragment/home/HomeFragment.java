@@ -17,12 +17,12 @@ import com.android.client.entity.greendao.DaoSession;
 import com.android.client.entity.greendao.Note;
 import com.android.client.entity.greendao.NoteDao;
 import com.android.client.receiver.MessageEvent;
+import com.android.http.Http;
+import com.android.http.HttpBase;
 import com.android.lib.fragment.LoadingFragment;
-import com.android.lib.http.HttpBase;
-import com.android.lib.http.Http;
-import com.android.lib.utils.log.L;
 import com.android.lib.utils.T;
 import com.android.client.entity.Store;
+import com.android.log.L;
 import com.pulltorefresh.lib.ui.PullToRefreshBase;
 import com.pulltorefresh.lib.ui.PullToRefreshListView;
 
@@ -176,7 +176,6 @@ public class HomeFragment extends LoadingFragment {
         };
         L.v(mHashMap);
 
-        //YHttpRequest.getInstance().request(context, "http://api.carisok.com/icarapi.php/sstore/get_nearby_sstores/", mHashMap, new YAsyncListener() {
         HttpBase.getDefaultInstance().request(context, Http.Method.GET,"http://api.carisok.com/icarapi.php/sstore/get_nearby_sstores/", mHashMap, new Http.onHttpListener() {
 
             @Override

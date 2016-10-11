@@ -13,9 +13,9 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-import com.android.lib.utils.log.L;
 
 import com.android.lib.R;
+import com.android.log.L;
 
 
 /**

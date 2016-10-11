@@ -1,7 +1,7 @@
 package com.android.lib.fragment;
 
 
-import com.android.lib.utils.log.L;
+import com.android.log.L;
 
 public abstract class DelayFragment extends BaseFragment {
 

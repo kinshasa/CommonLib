@@ -7,11 +7,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
 import com.android.lib.activity.BaseViewActivity;
-import com.android.lib.utils.log.L;
 import com.android.lib.custom.CustomViewPager;
 import com.android.client.Fragment.home.HomeFragment;
 import com.android.client.Fragment.others.CouponFragment;
 import com.android.client.Fragment.user.UserFragment;
+import com.android.log.L;
 
 import java.util.ArrayList;
 

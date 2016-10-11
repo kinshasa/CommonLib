@@ -8,19 +8,18 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/ViewPagerIndicator" />
-            <option value="$PROJECT_DIR$/ViewPagerIndicatorLib" />
             <option value="$PROJECT_DIR$/ViewPagerIndicatorSamples" />
             <option value="$PROJECT_DIR$/android-http-module" />
+            <option value="$PROJECT_DIR$/android-js-bridge-module" />
             <option value="$PROJECT_DIR$/android-log-module" />
             <option value="$PROJECT_DIR$/android-pay-module" />
+            <option value="$PROJECT_DIR$/android-refresh-view-module" />
             <option value="$PROJECT_DIR$/android-upgrade-moudle" />
+            <option value="$PROJECT_DIR$/android-viewpager-indicator" />
             <option value="$PROJECT_DIR$/android-volley-master" />
             <option value="$PROJECT_DIR$/cilent" />
             <option value="$PROJECT_DIR$/comlib" />
-            <option value="$PROJECT_DIR$/jsbridgelib" />
             <option value="$PROJECT_DIR$/pullToRefresh" />
-            <option value="$PROJECT_DIR$/pulltorefreshlib" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
