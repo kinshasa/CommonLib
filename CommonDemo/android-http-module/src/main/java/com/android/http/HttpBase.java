@@ -1,4 +1,4 @@
-package com.android.lib.utils.http;
+package com.android.http;
 
 /**
  * Created by liushaobo.xicp.net on 2016/6/13.

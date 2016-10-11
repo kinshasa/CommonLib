@@ -1,11 +1,6 @@
-package com.android.lib.utils.http;
+package com.android.http;
 
 import android.content.Context;
-
-
-import com.android.lib.utils.FileReadUtil;
-import com.android.lib.utils.constant.FileConstant;
-import com.android.lib.utils.log.L;
 
 import java.util.HashMap;
 
@@ -85,11 +80,6 @@ public abstract class HttpRequestImpl implements Http {
     @Override
     public void request(final Context context, final int method, final String url, final HashMap<String, String> params,
                         final onHttpListener listener) {
-
-        if(checkAssetFile(context,url,listener)){
-            return;
-        }
-
         switch (method) {
             case Method.GET:
             default:
@@ -100,29 +90,6 @@ public abstract class HttpRequestImpl implements Http {
                 break;
         }
 
-    }
-
-    /**
-     * 检查请求URL为本地文件，则直接读取文件返回即可。
-     * @param context
-     * @param url
-     * @param listener
-     * @return
-     */
-    public boolean checkAssetFile(final Context context, final String url,final onHttpListener listener){
-        L.v("url:"+url);
-        if (url.contains(FileConstant.ANDROID_ASSET)) {
-            try {
-                String file = url.replaceFirst(FileConstant.ANDROID_ASSET,"");
-                String str = FileReadUtil.ReadAssetFile(context, file);
-                L.v("response:"+str);
-                listener.onComplete(str);
-            } catch (Exception e) {
-                listener.onException("No Files");
-            }
-            return true;
-        }
-        return false;
     }
 
 

@@ -1,4 +1,4 @@
-include ':cilent'
+include ':cilent', ':android-log-module'
 include ':comlib'
 include ':pullToRefresh'
 include ':pulltorefreshlib'

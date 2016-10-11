@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/ViewPagerIndicatorLib/ViewPagerIndicatorLib.iml" filepath="$PROJECT_DIR$/ViewPagerIndicatorLib/ViewPagerIndicatorLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/ViewPagerIndicatorSamples/ViewPagerIndicatorSamples.iml" filepath="$PROJECT_DIR$/ViewPagerIndicatorSamples/ViewPagerIndicatorSamples.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-http-module/android-http-module.iml" filepath="$PROJECT_DIR$/android-http-module/android-http-module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-log-module/android-log-module.iml" filepath="$PROJECT_DIR$/android-log-module/android-log-module.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-pay-module/android-pay-module.iml" filepath="$PROJECT_DIR$/android-pay-module/android-pay-module.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-upgrade-moudle/android-upgrade-moudle.iml" filepath="$PROJECT_DIR$/android-upgrade-moudle/android-upgrade-moudle.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-volley-master/android-volley-master.iml" filepath="$PROJECT_DIR$/android-volley-master/android-volley-master.iml" />

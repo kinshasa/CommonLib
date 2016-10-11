@@ -1,4 +1,4 @@
-package com.android.lib.utils.http;
+package com.android.http;
 
 import android.content.Context;
 
@@ -35,9 +35,9 @@ public interface Http {
         /**
          * 发生异常的时候执行该方法
          *
-         * @param exception
+         * @param exceptionInfo
          */
-        void onException(Object exception);
+        void onException(Object exceptionInfo);
     }
 
     /**
