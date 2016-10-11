@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/ViewPagerIndicatorSamples" />
+            <option value="$PROJECT_DIR$/android-common-lib" />
             <option value="$PROJECT_DIR$/android-http-module" />
             <option value="$PROJECT_DIR$/android-js-bridge-module" />
             <option value="$PROJECT_DIR$/android-log-module" />
@@ -18,7 +19,6 @@
             <option value="$PROJECT_DIR$/android-viewpager-indicator" />
             <option value="$PROJECT_DIR$/android-volley-master" />
             <option value="$PROJECT_DIR$/cilent" />
-            <option value="$PROJECT_DIR$/comlib" />
             <option value="$PROJECT_DIR$/pullToRefresh" />
           </set>
         </option>

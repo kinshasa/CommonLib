@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CommonDemo.iml" filepath="$PROJECT_DIR$/CommonDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/ViewPagerIndicatorSamples/ViewPagerIndicatorSamples.iml" filepath="$PROJECT_DIR$/ViewPagerIndicatorSamples/ViewPagerIndicatorSamples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-common-lib/android-common-lib.iml" filepath="$PROJECT_DIR$/android-common-lib/android-common-lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-http-module/android-http-module.iml" filepath="$PROJECT_DIR$/android-http-module/android-http-module.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-js-bridge-module/android-js-bridge-module.iml" filepath="$PROJECT_DIR$/android-js-bridge-module/android-js-bridge-module.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-log-module/android-log-module.iml" filepath="$PROJECT_DIR$/android-log-module/android-log-module.iml" />
@@ -13,7 +14,6 @@
       <module fileurl="file://$PROJECT_DIR$/android-viewpager-indicator/android-viewpager-indicator.iml" filepath="$PROJECT_DIR$/android-viewpager-indicator/android-viewpager-indicator.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-volley-master/android-volley-master.iml" filepath="$PROJECT_DIR$/android-volley-master/android-volley-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/cilent/cilent.iml" filepath="$PROJECT_DIR$/cilent/cilent.iml" />
-      <module fileurl="file://$PROJECT_DIR$/comlib/comlib.iml" filepath="$PROJECT_DIR$/comlib/comlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/pullToRefresh/pullToRefresh.iml" filepath="$PROJECT_DIR$/pullToRefresh/pullToRefresh.iml" />
     </modules>
   </component>
