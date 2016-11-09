@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/full_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/vg_base_top"
+        style="@style/ll_top">
+
+        <include layout="@layout/layout_base_view_top" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/vg_base_body"
+        style="@style/ll_body">
+
+        <include layout="@layout/layout_base_view_body" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/vg_base_bottom"
+        style="@style/ll_bottom">
+
+        <View style="@style/fulldriver_view" />
+        <include layout="@layout/layout_base_view_bottom" />
+    </LinearLayout>
+</LinearLayout>

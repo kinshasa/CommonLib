@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@color/ui_white" style="@style/full_view" android:orientation="vertical" >
+    
+    <LinearLayout style="@style/full_view" android:gravity="center" android:id="@+id/vg_frame_load">
+    </LinearLayout>
+   
+   	<LinearLayout style="@style/full_view"  android:id="@+id/ll_frame_base_ctx" android:orientation="vertical">
+        <LinearLayout android:id="@+id/vg_frame_head" android:visibility="gone" style="@style/ll_top">
+			
+		</LinearLayout>
+		<LinearLayout android:id="@+id/vg_frame_body" android:visibility="gone" style="@style/ll_body">
+			
+		</LinearLayout>
+   	</LinearLayout>
+    
+</RelativeLayout>

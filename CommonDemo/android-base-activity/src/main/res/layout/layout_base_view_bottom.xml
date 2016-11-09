@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:id="@+id/rl_b" style="@style/fullline_view">
+
+	<LinearLayout style="@style/full_view">
+		<LinearLayout android:id="@+id/ll_table_home"  style="@style/rl_bottom_item">
+		    <!-- <TextView android:id="@+id/tv_table_home" android:drawableTop="@drawable/ib_carwash" android:gravity="center" style="@style/text_bottom" android:text="枫车" /> -->
+			<ImageView android:id="@+id/iv_table_home" style="@style/img_bottom" android:src="@drawable/ic_launcher"/>
+			<TextView android:id="@+id/tv_table_home"  style="@style/text_bottom" android:text="左边" android:textColor="@color/ui_ttip_red"/>
+		</LinearLayout>
+	   	<LinearLayout android:id="@+id/ll_table_coupon"  style="@style/rl_bottom_item">
+	   	    <!-- <TextView android:id="@+id/tv_table_coupon" android:drawableTop="@drawable/ib_coupon" android:gravity="center" style="@style/text_bottom" android:text="优惠" /> -->
+	       	<ImageView android:id="@+id/iv_table_coupon" style="@style/img_bottom" android:src="@drawable/ic_launcher"/>
+	       	<TextView android:id="@+id/tv_table_coupon"  style="@style/text_bottom" android:text="中间" />
+	   	</LinearLayout>
+	   	<LinearLayout android:id="@+id/ll_table_property"  style="@style/rl_bottom_item">
+	   	     <!-- <TextView android:id="@+id/tv_table_property" android:drawableTop="@drawable/ib_more" android:gravity="center" style="@style/text_bottom" android:text="枫车" /> -->
+			<ImageView android:id="@+id/iv_table_property" style="@style/img_bottom" android:src="@drawable/ic_launcher"/>
+	       	<TextView android:id="@+id/tv_table_property" style="@style/text_bottom" android:text="我的" />
+	   	</LinearLayout>
+	</LinearLayout>
+   
+</LinearLayout>

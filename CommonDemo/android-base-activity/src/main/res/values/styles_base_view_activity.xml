@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 2015.10.21 add @liushaobo -->
+
+    <style name="ll_top">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/rl_top</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@color/ui_viewbg_red</item>
+        <item name="android:padding">10dp</item>
+    </style>
+    <style name="ll_body">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">5dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/ui_pagebg_grap1</item>
+    </style>
+    <style name="ll_bottom">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/rl_bottom</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+    <style name="ll_gb_loading" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="ll_pull_loading" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="rl_top_left">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentLeft">true</item>
+    </style>
+    <style name="rl_top_center">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+    <style name="rl_top_right">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+    <style name="rl_bottom_item">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/rl_bottom</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@color/ui_white</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">@dimen/text_panding3</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="table_coupon">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@drawable/selector_item_whrite</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="img_head">
+        <item name="android:layout_width">@dimen/img_heigh</item>
+        <item name="android:layout_height">@dimen/img_heigh</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:contentDescription">@string/empty</item>
+        <item name="android:src">@drawable/icon_base_view_back</item>
+    </style>
+    <style name="img_bottom">
+        <item name="android:layout_width">@dimen/img_heigh</item>
+        <item name="android:layout_height">@dimen/img_heigh</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:contentDescription">@string/empty</item>
+        <item name="android:src">@drawable/icon_base_view_back</item>
+        <item name="android:visibility">visible</item>
+    </style>
+    <style name="img_bg_loading">
+        <item name="android:layout_width">@dimen/img_load_heigh</item>
+        <item name="android:layout_height">@dimen/img_load_heigh</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:contentDescription">@string/empty</item>
+        <!--<item name="android:src">@anim/baseframe_load_imgs</item>-->
+    </style>
+    <style name="img_pull_loading">
+        <item name="android:layout_width">@dimen/img_heigh</item>
+        <item name="android:layout_height">@dimen/img_heigh</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:contentDescription">@string/empty</item>
+       <!-- <item name="android:src">@anim/baseframe_load_imgs</item>-->
+    </style>
+    <style name="text_head" parent="@style/wrap_view">
+        <item name="android:text">@string/head</item>
+        <item name="android:textColor">@color/ui_white</item>
+        <item name="android:textSize">@dimen/text_normal16</item>
+    </style>
+    <style name="text_bottom" parent="@style/wrap_view">
+        <item name="android:text">@string/head</item>
+        <item name="android:textColor">@color/ui_thead_grap6</item>
+        <item name="android:visibility">visible</item>
+    </style>
+    <style name="text_corner_red" parent="@style/wrap_view">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:background">@drawable/btn_touch_bg_red_press</item>
+        <item name="android:text">@string/head</item>
+        <item name="android:textColor">@color/ui_white</item>
+        <item name="android:textSize">@dimen/text_normal14</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/text_panding3</item>
+    </style>
+    <style name="base_height_weight">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+    </style>
+</resources>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 2015.10.21 add @liushaobo -->
+    <dimen name="img_heigh">25dp</dimen>
+    <dimen name="img_load_heigh">90dp</dimen>
+    <dimen name="rl_top">55dip</dimen>
+    <dimen name="rl_bottom">55dp</dimen>
+    <dimen name="text_normal12">12dp</dimen>
+    <dimen name="text_normal14">14dp</dimen>
+    <dimen name="text_normal16">16dp</dimen>
+    <dimen name="text_normal18">18dp</dimen>
+    <dimen name="text_panding3">3dp</dimen>
+    <dimen name="text_panding5">5dp</dimen>
+    <dimen name="text_panding8">8dp</dimen>
+    <!-- 2015.10.21 add @liushaobo -->
+    <style name="wrap_view">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="full_view">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+
+    <style name="fullline_view">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="fulldriver_view">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/ui_driver_grap2</item>
+    </style>
+
+    <style name="fulldriver_view_0_5">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">@color/ui_viewbg_grap3</item>
+    </style>
+
+    <style name="verticaldriver_nocolor">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+
+    <style name="horizontaldriver_nocolor_3dp">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">3dp</item>
+    </style>
+
+    <!-- 2015.10.21 add @liushaobo -->
+    <!-- 1.用于部分字体颜色，模块背景 -->
+    <color name="ui_white">#FFFFFF</color>
+    <!-- 2.页面背景底色 -->
+    <color name="ui_pagebg_grap1">#e5e5e5</color>
+    <!-- 3.列表1px分割线 -->
+    <color name="ui_driver_grap2">#d5d5d5</color>
+    <!-- 4.次要的辅助性字体，提示性文字，失效文字 -->
+    <color name="ui_ttip_grap4">#999999</color>
+    <!-- 5.部分模块背景 -->
+    <color name="ui_viewbg_grap3">#CBCBCB</color>
+    <!-- 6.辅助颜色，默认状态字体 -->
+    <color name="ui_tdefault_grap5">#666666</color>
+    <!-- 7.标题，正文，部分金额等主要字体 -->
+    <color name="ui_thead_grap6">#3b3b3b</color>
+    <!-- 8.重要提醒文字 -->
+    <color name="ui_ttip_red">#FE4747</color>
+    <!-- 9.醒目文字，价格文字 -->
+    <color name="ui_ttip_yellow">#FF6600</color>
+    <!-- 10.用于电话链接，可点控文字 -->
+    <color name="ui_tlink_link">#3268CC</color>
+    <!-- 13.枫车快手色系，小面积使用于按钮，icon等 -->
+    <color name="ui_viewbg_red">#FC2D2D</color>
+    <!-- ui_text_red -->
+    <color name="ui_viewbg_red_press">#cc0001</color>
+    <color name="ui_text_green">#39AC69</color>
+    <color name="ui_text_green_press">#006f00</color>
+    <color name="ui_coupon_61cd8f">#61cd8f</color>
+    <color name="ui_coupon_77b6df">#77b6df</color>
+    <color name="ui_coupon_a8c360">#a8c360</color>
+    <color name="ui_coupon_ae83da">#ae83da</color>
+    <color name="ui_coupon_e6a36e">#e6a36e</color>
+    <color name="ui_coupon_e77c7c">#e77c7c</color>
+    <!-- 2015.10.21 add @liushaobo -->
+    <string name="tip_net_error">网络异常，请稍后再试</string>
+
+</resources>
