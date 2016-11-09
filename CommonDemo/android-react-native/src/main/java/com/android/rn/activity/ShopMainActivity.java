@@ -9,10 +9,10 @@ import java.util.List;
  * Created by liusp@gagc.com.cn on 2016.11.9.
  */
 
-public class DsshRNActivity extends ReactActivity {
+public class ShopMainActivity extends ReactActivity {
     @Override
     protected String getMainComponentName() {
-        return "dssh";
+        return "ShopMainPage";
     }
 
     @Override

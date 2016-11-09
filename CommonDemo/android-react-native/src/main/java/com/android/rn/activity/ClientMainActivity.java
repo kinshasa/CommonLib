@@ -9,10 +9,10 @@ import java.util.List;
  * Created by liusp@gagc.com.cn on 2016.11.9.
  */
 
-public class DscfRNActivity extends ReactActivity {
+public class ClientMainActivity extends ReactActivity {
     @Override
     protected String getMainComponentName() {
-        return "dscf";
+        return "ClientMainPage";
     }
 
     @Override
