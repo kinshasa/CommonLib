@@ -1,4 +1,4 @@
-include ':cilent', ':demo', ':android-base-activity', ':android-react-native'
+include ':cilent', ':demo', ':android-base-activity', ':android-react-native', ':android-start-page'
 include ':android-log-module'
 include ':android-common-lib'
 include ':pullToRefresh'

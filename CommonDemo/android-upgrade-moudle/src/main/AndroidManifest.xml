@@ -9,4 +9,9 @@
 
     </application>
 
+    <activity
+        android:name=".MainAcitivity"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+        android:label="@string/app_name"
+        android:launchMode="singleTop" />
 </manifest>
