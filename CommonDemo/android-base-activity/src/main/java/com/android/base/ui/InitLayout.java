@@ -12,7 +12,7 @@ import android.widget.FrameLayout;
  */
 
 @SuppressWarnings("unused")
-public abstract class BaseLayout extends FrameLayout {
+public abstract class InitLayout extends FrameLayout {
 
     /**
      * 容器布局
@@ -20,19 +20,19 @@ public abstract class BaseLayout extends FrameLayout {
     private View mContainer;
 
 
-    public BaseLayout(Context context) {
+    public InitLayout(Context context) {
         this(context, null);
     }
 
-    public BaseLayout(Context context, AttributeSet attrs) {
+    public InitLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public BaseLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public InitLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         this(context, attrs, defStyleAttr, 0);
     }
 
-    public BaseLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public InitLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context, attrs);
     }

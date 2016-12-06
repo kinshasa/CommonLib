@@ -1,7 +1,10 @@
 package com.android.base.activity;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
+
+import com.android.base.ui.RoofLayout;
 
 /**
  * Created by liusp@gagc.com.cn on 2016.10.25.
@@ -9,9 +12,13 @@ import android.os.PersistableBundle;
 
 public class BaseActivity extends LifeCycleActivity {
 
-    @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    private RoofLayout roofLayout;
+    private Context context = BaseActivity.this;
 
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //roofLayout = new RoofLayout(context);
+        //setContentView(roofLayout);
     }
 }

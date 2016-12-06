@@ -32,6 +32,7 @@ dependencies {
 
 
     compile project(':android-log-module')
+    compile project(':android-base-activity')
 
     //@https://github.com/kaelaela/VerticalViewPager
     compile 'me.kaelaela:verticalviewpager:1.0.0@aar'
