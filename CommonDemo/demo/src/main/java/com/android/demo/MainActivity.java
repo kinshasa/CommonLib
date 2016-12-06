@@ -1,11 +1,9 @@
 package com.android.demo;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.android.base.activity.BaseActivity;
-import com.android.base.ui.RoofLayout;
 
 public class MainActivity extends BaseActivity {
 

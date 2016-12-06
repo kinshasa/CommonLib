@@ -13,12 +13,11 @@ import com.android.base.ui.RoofLayout;
 public class BaseActivity extends LifeCycleActivity {
 
     private RoofLayout roofLayout;
-    private Context context = BaseActivity.this;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        roofLayout = new RoofLayout(context);
+        roofLayout = new RoofLayout(this);
         setContentView(roofLayout);
     }
 }
