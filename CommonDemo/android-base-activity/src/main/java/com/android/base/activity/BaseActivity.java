@@ -18,7 +18,7 @@ public class BaseActivity extends LifeCycleActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //roofLayout = new RoofLayout(context);
-        //setContentView(roofLayout);
+        roofLayout = new RoofLayout(context);
+        setContentView(roofLayout);
     }
 }

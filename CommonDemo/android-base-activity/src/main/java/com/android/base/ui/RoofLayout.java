@@ -19,7 +19,8 @@ public class RoofLayout extends InitLayout {
 
     @Override
     protected View createView(Context context, AttributeSet attrs) {
-        View container = LayoutInflater.from(context).inflate(R.layout.layout_roof, null);
+
+        View container = LayoutInflater.from(context.getApplicationContext()).inflate(R.layout.layout_roof, null);
         return container;
     }
 }
