@@ -1,8 +1,37 @@
 apply plugin: 'com.android.application'
 
+/**
+ * Set this to true to create two separate APKs instead of one:
+ *   - An APK that only works on ARM devices
+ *   - An APK that only works on x86 devices
+ * The advantage is the size of the APK is reduced by about 4MB.
+ * Upload all the APKs to the Play Store and people will download
+ * the correct one based on the CPU architecture of their device.
+ */
+def enableSeparateBuildPerCPUArchitecture = false
+
+/**
+ * Run Proguard to shrink the Java bytecode in release builds.
+ */
+def enableProguardInReleaseBuilds = false
+
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
+
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+        }
+    }
+
+    dexOptions {
+        dexInProcess true
+        preDexLibraries true
+        javaMaxHeapSize "2g"
+        incremental true
+    }
 
     defaultConfig {
         applicationId "com.android.client"
@@ -10,13 +39,47 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        ndk {
+            abiFilters "armeabi-v7a", "x86", "armeabi"
+        }
     }
-    buildTypes {
+
+    splits {
+        abi {
+            reset()
+            enable enableSeparateBuildPerCPUArchitecture
+            universalApk false  // If true, also generate a universal APK
+            include "armeabi-v7a", "x86"
+        }
+    }
+
+    aaptOptions {
+        cruncherEnabled = false
+        useNewCruncher = false
+    }
+
+
+    signingConfigs {
+
         release {
-            //表示打包签名的时候 是正式包 会执行混淆代码
-            minifyEnabled false
+            storeFile file(MYAPP_RELEASE_STORE_FILE)
+            keyAlias MYAPP_RELEASE_KEY_ALIAS
+            storePassword MYAPP_RELEASE_STORE_PASSWORD
+            keyPassword MYAPP_RELEASE_KEY_PASSWORD
+        }
+
+    }
+
+    buildTypes {
+
+        release {
+            //是否开启混淆
+            minifyEnabled enableProguardInReleaseBuilds
             //定义代码混淆文件 注意：proguard-rules.pro要放在主工程的目录下
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            //去除无用的resource文件
+            shrinkResources true
+            signingConfig signingConfigs.release
         }
     }
 }
