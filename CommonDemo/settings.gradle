@@ -1,7 +1,16 @@
-include ':cilent', ':demo', ':android-base-activity', ':android-react-native', ':android-start-page'
+//application
+include ':cilent'
+include ':demo'
+include ':pullToRefresh'
+include ':ViewPagerIndicatorSamples'
+
+//lib
+include ':android-base-activity'
+include ':android-react-native'
+include ':android-start-page'
+include ':android-hotfix-module'
 include ':android-log-module'
 include ':android-common-lib'
-include ':pullToRefresh'
 include ':android-refresh-view-module'
 include ':android-volley-master'
 include ':android-js-bridge-module'
@@ -9,4 +18,3 @@ include ':android-pay-module'
 include ':android-upgrade-moudle'
 include ':android-http-module'
 include ':android-viewpager-indicator'
-include ':ViewPagerIndicatorSamples'

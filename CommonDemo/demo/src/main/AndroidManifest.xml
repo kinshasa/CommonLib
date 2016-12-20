@@ -20,7 +20,8 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="Mains">
+            android:label="Mains"
+            android:alwaysRetainTaskState="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.android.demo.SAMPLE" />
