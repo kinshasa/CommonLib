@@ -19,7 +19,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.android.tools.build:gradle:2.3.0'
     }
 }
 
@@ -60,6 +60,7 @@ android {
         quiet true
         abortOnError false
     }
+    buildToolsVersion '25.0.0'
 }
 
 apply from: 'https://raw.github.com/mcxiaoke/gradle-mvn-push/master/jar.gradle'
