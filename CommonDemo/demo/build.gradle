@@ -36,4 +36,23 @@ dependencies {
 
     //@https://github.com/kaelaela/VerticalViewPager
     compile 'me.kaelaela:verticalviewpager:1.0.0@aar'
+
+
+    //检测内存泄漏@https://github.com/square/leakcanary
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+
+
+    //Android loading animations@https://github.com/ybq/Android-SpinKit
+    compile 'com.github.ybq:Android-SpinKit:1.1.0'
+
+    //A wrapping TextView for Android@https://github.com/deano2390/FlowTextView
+    compile 'com.github.deano2390:FlowTextView:2.0.5'
+
+    //A TextView that automatically resizes text to fit perfectly within its bounds.@https://github.com/grantland/android-autofittextview
+    compile 'me.grantland:autofittextview:0.2.+'
+
+    //Android平台的导航控件@https://github.com/HomHomLin/AdvancedPagerSlidingTabStrip
+    compile 'homhomlin.lib:apsts:1.8.0'
 }

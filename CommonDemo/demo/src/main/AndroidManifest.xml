@@ -37,6 +37,34 @@
                 <category android:name="com.android.demo.list" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.list.AnimLoadingActivity"
+            android:label="AnimLoadingActivity"
+            android:alwaysRetainTaskState="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.demo.list" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.list.FlowTextViewActivity"
+            android:label="FlowTextViewActivity"
+            android:alwaysRetainTaskState="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.demo.list" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.list.CustomViewsActivity"
+            android:label="CustomViewsActivity"
+            android:alwaysRetainTaskState="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.demo.list" />
+            </intent-filter>
+        </activity>
 
     </application>
 
