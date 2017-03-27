@@ -66,6 +66,15 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activity.list.SlidingTabViewActivity"
+            android:label="SlidingTabViewActivity"
+            android:alwaysRetainTaskState="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.demo.list" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
