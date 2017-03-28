@@ -42,8 +42,8 @@ public class SlidingTabViewActivity extends BaseActivity implements ViewPager.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sliding_tabview);
-        //findViews();
-        //init();
+        findViews();
+        init();
     }
 
     private void findViews(){

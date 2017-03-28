@@ -10,7 +10,7 @@
         android:layout_alignParentBottom="true"
         android:fillViewport="false"/>
 
-    <com.lhh.apst.advancedpagerslidingtabstrip.APSTSViewPager
+    <com.android.demo.activity.list.APSTSViewPager
         android:id="@+id/vp_main"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
