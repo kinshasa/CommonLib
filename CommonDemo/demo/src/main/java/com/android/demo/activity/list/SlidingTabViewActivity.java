@@ -2,7 +2,6 @@ package com.android.demo.activity.list;
 
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -10,6 +9,7 @@ import android.support.v4.view.ViewPager;
 
 import com.android.base.activity.BaseActivity;
 import com.android.demo.R;
+import com.android.demo.activity.viewpager.APSTSViewPager;
 import com.android.demo.fragment.FirstFragment;
 import com.android.demo.fragment.FourthFragment;
 import com.android.demo.fragment.SecondFragment;
@@ -20,16 +20,16 @@ import com.lhh.apst.library.AdvancedPagerSlidingTabStrip;
  * Created by lshaobocsu@gmail.com on 2017.3.27.
  */
 
-public class SlidingTabViewActivity extends BaseActivity implements ViewPager.OnPageChangeListener{
+public class SlidingTabViewActivity extends BaseActivity implements ViewPager.OnPageChangeListener {
 
 
     public AdvancedPagerSlidingTabStrip mAPSTS;
     public APSTSViewPager mVP;
 
-    private static final int VIEW_FIRST 		= 0;
-    private static final int VIEW_SECOND	    = 1;
-    private static final int VIEW_THIRD       = 2;
-    private static final int VIEW_FOURTH    = 3;
+    private static final int VIEW_FIRST = 0;
+    private static final int VIEW_SECOND = 1;
+    private static final int VIEW_THIRD = 2;
+    private static final int VIEW_FOURTH = 3;
 
     private static final int VIEW_SIZE = 4;
 
@@ -46,12 +46,12 @@ public class SlidingTabViewActivity extends BaseActivity implements ViewPager.On
         init();
     }
 
-    private void findViews(){
-        mAPSTS = (AdvancedPagerSlidingTabStrip)findViewById(R.id.tabs);
-        mVP = (APSTSViewPager)findViewById(R.id.vp_main);
+    private void findViews() {
+        mAPSTS = (AdvancedPagerSlidingTabStrip) findViewById(R.id.tabs);
+        mVP = (APSTSViewPager) findViewById(R.id.vp_main);
     }
 
-    private void init(){
+    private void init() {
         mVP.setOffscreenPageLimit(VIEW_SIZE);
         FragmentAdapter adapter = new FragmentAdapter(getSupportFragmentManager());
 
@@ -61,7 +61,7 @@ public class SlidingTabViewActivity extends BaseActivity implements ViewPager.On
         mAPSTS.setViewPager(mVP);
         mAPSTS.setOnPageChangeListener(this);
         mVP.setCurrentItem(VIEW_FIRST);
-        mAPSTS.showDot(VIEW_FIRST,"99+");
+        mAPSTS.showDot(VIEW_FIRST, "99+");
     }
 
     @Override
@@ -79,7 +79,7 @@ public class SlidingTabViewActivity extends BaseActivity implements ViewPager.On
 
     }
 
-    public class FragmentAdapter extends FragmentStatePagerAdapter implements AdvancedPagerSlidingTabStrip.IconTabProvider{
+    public class FragmentAdapter extends FragmentStatePagerAdapter implements AdvancedPagerSlidingTabStrip.IconTabProvider {
 
         public FragmentAdapter(FragmentManager fm) {
             super(fm);
@@ -87,25 +87,25 @@ public class SlidingTabViewActivity extends BaseActivity implements ViewPager.On
 
         @Override
         public Fragment getItem(int position) {
-            if(position >= 0 && position < VIEW_SIZE){
-                switch (position){
-                    case  VIEW_FIRST:
-                        if(null == mFirstFragment)
+            if (position >= 0 && position < VIEW_SIZE) {
+                switch (position) {
+                    case VIEW_FIRST:
+                        if (null == mFirstFragment)
                             mFirstFragment = FirstFragment.instance();
                         return mFirstFragment;
 
                     case VIEW_SECOND:
-                        if(null == mSecondFragment)
+                        if (null == mSecondFragment)
                             mSecondFragment = SecondFragment.instance();
                         return mSecondFragment;
 
                     case VIEW_THIRD:
-                        if(null == mThirdFragment)
+                        if (null == mThirdFragment)
                             mThirdFragment = ThirdFragment.instance();
                         return mThirdFragment;
 
                     case VIEW_FOURTH:
-                        if(null == mFourthFragment)
+                        if (null == mFourthFragment)
                             mFourthFragment = FourthFragment.instance();
                         return mFourthFragment;
                     default:
@@ -122,16 +122,16 @@ public class SlidingTabViewActivity extends BaseActivity implements ViewPager.On
 
         @Override
         public CharSequence getPageTitle(int position) {
-            if(position >= 0 && position < VIEW_SIZE){
-                switch (position){
-                    case  VIEW_FIRST:
-                        return  "first";
-                    case  VIEW_SECOND:
-                        return  "second";
-                    case  VIEW_THIRD:
-                        return  "third";
-                    case  VIEW_FOURTH:
-                        return  "fourth";
+            if (position >= 0 && position < VIEW_SIZE) {
+                switch (position) {
+                    case VIEW_FIRST:
+                        return "first";
+                    case VIEW_SECOND:
+                        return "second";
+                    case VIEW_THIRD:
+                        return "third";
+                    case VIEW_FOURTH:
+                        return "fourth";
                     default:
                         break;
                 }
@@ -141,16 +141,16 @@ public class SlidingTabViewActivity extends BaseActivity implements ViewPager.On
 
         @Override
         public Integer getPageIcon(int index) {
-            if(index >= 0 && index < VIEW_SIZE){
-                switch (index){
-                    case  VIEW_FIRST:
-                        return  R.mipmap.home_main_icon_n;
+            if (index >= 0 && index < VIEW_SIZE) {
+                switch (index) {
+                    case VIEW_FIRST:
+                        return R.mipmap.home_main_icon_n;
                     case VIEW_SECOND:
-                        return  R.mipmap.home_categry_icon_n;
+                        return R.mipmap.home_categry_icon_n;
                     case VIEW_THIRD:
-                        return  R.mipmap.home_live_icon_n;
+                        return R.mipmap.home_live_icon_n;
                     case VIEW_FOURTH:
-                        return  R.mipmap.home_mine_icon_n;
+                        return R.mipmap.home_mine_icon_n;
                     default:
                         break;
                 }
@@ -160,16 +160,16 @@ public class SlidingTabViewActivity extends BaseActivity implements ViewPager.On
 
         @Override
         public Integer getPageSelectIcon(int index) {
-            if(index >= 0 && index < VIEW_SIZE){
-                switch (index){
-                    case  VIEW_FIRST:
-                        return  R.mipmap.home_main_icon_f_n;
+            if (index >= 0 && index < VIEW_SIZE) {
+                switch (index) {
+                    case VIEW_FIRST:
+                        return R.mipmap.home_main_icon_f_n;
                     case VIEW_SECOND:
-                        return  R.mipmap.home_categry_icon_f_n;
+                        return R.mipmap.home_categry_icon_f_n;
                     case VIEW_THIRD:
-                        return  R.mipmap.home_live_icon_f_n;
+                        return R.mipmap.home_live_icon_f_n;
                     case VIEW_FOURTH:
-                        return  R.mipmap.home_mine_icon_f_n;
+                        return R.mipmap.home_mine_icon_f_n;
                     default:
                         break;
                 }

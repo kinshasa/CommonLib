@@ -96,4 +96,7 @@ dependencies {
 
 
     compile project(path: ':android-http-module')
+
+    //Android平台的导航控件@https://github.com/HomHomLin/AdvancedPagerSlidingTabStrip
+    compile 'homhomlin.lib:apsts:1.8.0'
 }

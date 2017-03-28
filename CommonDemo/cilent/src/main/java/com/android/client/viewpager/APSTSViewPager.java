@@ -1,4 +1,4 @@
-package com.android.demo.activity.list;
+package com.android.client.viewpager;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;
