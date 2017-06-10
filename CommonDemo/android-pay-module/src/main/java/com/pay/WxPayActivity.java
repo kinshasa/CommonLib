@@ -94,6 +94,7 @@ public class WxPayActivity extends Activity {
                 PayModule.promise.reject("0", e.getMessage());
                 PayModule.promise = null;
             }
+            finish();
         }
     }
 
@@ -111,6 +112,7 @@ public class WxPayActivity extends Activity {
                 PayModule.promise = null;
             }
         }
+        finish();
     }
 
     @Override
