@@ -9,10 +9,6 @@ import android.view.ViewGroup;
 
 import com.android.demo.R;
 
-
-/**
- * Created by linhonghong on 2015/8/11.
- */
 public class SecondFragment extends Fragment {
 
     public static SecondFragment instance() {

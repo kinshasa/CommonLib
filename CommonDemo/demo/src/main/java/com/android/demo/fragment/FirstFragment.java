@@ -10,9 +10,6 @@ import android.view.ViewGroup;
 import com.android.demo.R;
 
 
-/**
- * Created by linhonghong on 2015/8/11.
- */
 public class FirstFragment extends Fragment {
 
     public static FirstFragment instance() {

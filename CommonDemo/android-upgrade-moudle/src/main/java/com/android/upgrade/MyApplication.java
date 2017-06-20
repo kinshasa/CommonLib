@@ -14,5 +14,10 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         CrashReport.initCrashReport(getApplicationContext(), "注册时申请的APPID", false);
+        // you must install multiDex whatever tinker is installed!
+//        MultiDex.install(base);
+//
+//        // 安装tinker
+//        Beta.installTinker();
     }
 }

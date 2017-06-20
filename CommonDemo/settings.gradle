@@ -1,6 +1,6 @@
 //application
 include ':cilent'
-//include ':demo'
+include ':demo'
 include ':pullToRefresh'
 include ':ViewPagerIndicatorSamples'
 

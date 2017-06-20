@@ -25,7 +25,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.client.application.MyApplication;
+import com.android.client.MainApplication;
 import com.android.client.util.StrUtils;
 
 import com.android.client.R;
@@ -278,10 +278,10 @@ public class LoadingWebView extends WebView {
                     //如果另外的应用程序WebView，我们可以进行重用
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.putExtra(Browser.EXTRA_APPLICATION_ID,
-                            MyApplication.getInstance()
+                            MainApplication.getInstance()
                                     .getApplicationContext().getPackageName());
                     try {
-                        MyApplication.getInstance().startActivity(intent);
+                        MainApplication.getInstance().startActivity(intent);
                         return true;
                     } catch (ActivityNotFoundException ex) {
                     }

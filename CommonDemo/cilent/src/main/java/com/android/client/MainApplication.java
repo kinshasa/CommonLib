@@ -1,4 +1,4 @@
-package com.android.client.application;
+package com.android.client;
 
 import android.app.Application;
 
@@ -7,9 +7,9 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 /**
  * Created by liushaobo.xicp.net on 2016/6/14.
  */
-public class MyApplication extends Application {
+public class MainApplication extends Application {
 
-    private static MyApplication instance;
+    private static MainApplication instance;
 
     @Override
     public void onCreate() {
@@ -18,10 +18,17 @@ public class MyApplication extends Application {
 
         //初始化图片加载器
         Fresco.initialize(this);
+
+        // you must install multiDex whatever tinker is installed!
+//        MultiDex.install(this);
+//
+//
+//        // 安装tinker
+//        Beta.installTinker();
     }
 
 
-    public  static MyApplication getInstance(){
+    public  static MainApplication getInstance(){
         return instance;
     }
 }

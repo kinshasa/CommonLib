@@ -18,7 +18,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 
-import com.android.client.application.MyApplication;
+import com.android.client.MainApplication;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -529,7 +529,7 @@ public class StrUtils {
     public static String getIpCountry() {
         String ipCountry = "460";
         try {
-            TelephonyManager mTelephonyManager = (TelephonyManager) MyApplication
+            TelephonyManager mTelephonyManager = (TelephonyManager) MainApplication
                     .getInstance().getSystemService(Context.TELEPHONY_SERVICE);
             if (mTelephonyManager != null) {
                 String IMSI = mTelephonyManager.getSubscriberId();
@@ -548,7 +548,7 @@ public class StrUtils {
     public static String getIpName() {
         String ipName = null;
         try {
-            TelephonyManager mTelephonyManager = (TelephonyManager) MyApplication
+            TelephonyManager mTelephonyManager = (TelephonyManager) MainApplication
                     .getInstance().getSystemService(Context.TELEPHONY_SERVICE);
             if (mTelephonyManager != null) {
                 String IMSI = mTelephonyManager.getSubscriberId();
@@ -565,7 +565,7 @@ public class StrUtils {
 
     // 获取ip基站
     public static String getIpBaseStation() {
-        TelephonyManager telMgr = (TelephonyManager) MyApplication
+        TelephonyManager telMgr = (TelephonyManager) MainApplication
                 .getInstance().getSystemService(Context.TELEPHONY_SERVICE);
         int cid = 0;
         int lac = 0;
@@ -609,7 +609,7 @@ public class StrUtils {
     // 获取Android_id
     public static String getAndroidId() {
 
-        return Settings.Secure.getString(MyApplication.getInstance()
+        return Settings.Secure.getString(MainApplication.getInstance()
                 .getContentResolver(), Settings.Secure.ANDROID_ID);
     }
 
@@ -693,7 +693,7 @@ public class StrUtils {
     // 获取用户的IPd
     public static int getIpAddress() {
         int ipAddress = 0;
-        WifiManager wifiManager = (WifiManager) MyApplication
+        WifiManager wifiManager = (WifiManager) MainApplication
                 .getInstance().getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
         if (wifiInfo == null || wifiInfo.equals("")) {
