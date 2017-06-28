@@ -23,9 +23,12 @@ public class HttpRequestVolleyImpl extends HttpRequestImpl {
 
 
     private RequestQueue mRequestQueue;
+
     private synchronized RequestQueue getRequestQueue(Context context) {
-        if (mRequestQueue == null) {
-            mRequestQueue = Volley.newRequestQueue(context);
+        synchronized (this) {
+            if (mRequestQueue == null) {
+                mRequestQueue = Volley.newRequestQueue(context);
+            }
         }
         return mRequestQueue;
     }
@@ -40,7 +43,7 @@ public class HttpRequestVolleyImpl extends HttpRequestImpl {
     @Override
     public void get(final Context context, final String str, final HashMap<String, String> params, final onHttpListener listener) {
 
-        String url = new StrUtil().encodeUrl(str,params).toString();
+        String url = new StrUtil().encodeUrl(str, params).toString();
 
         StringRequest stringRequest = new StringRequest(url,
 
@@ -52,7 +55,7 @@ public class HttpRequestVolleyImpl extends HttpRequestImpl {
 
                         try {
                             listener.onComplete(response);
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             e.printStackTrace();
                             listener.onException(e);
                         }
@@ -76,7 +79,7 @@ public class HttpRequestVolleyImpl extends HttpRequestImpl {
     @Override
     public void post(final Context context, String str, final HashMap<String, String> params, final onHttpListener listener) {
 
-        String temp = new StrUtil().encodeUrl(str,params).toString();
+        String temp = new StrUtil().encodeUrl(str, params).toString();
 
         StringRequest stringRequest = new StringRequest(com.android.volley.Request.Method.POST, str,
 
@@ -87,7 +90,7 @@ public class HttpRequestVolleyImpl extends HttpRequestImpl {
                         L.v(response);
                         try {
                             listener.onComplete(response);
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             e.printStackTrace();
                             listener.onException(response);
                         }
@@ -101,8 +104,7 @@ public class HttpRequestVolleyImpl extends HttpRequestImpl {
                         L.v(error.getMessage());
                         listener.onException(error.getMessage());
                     }
-                })
-        {
+                }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 return params;
