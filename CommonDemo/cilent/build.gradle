@@ -30,7 +30,7 @@ android {
         dexInProcess true
         preDexLibraries true
         javaMaxHeapSize "2g"
-        incremental true
+        //incremental true
     }
 
     defaultConfig {
