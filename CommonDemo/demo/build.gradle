@@ -52,7 +52,7 @@ dependencies {
     compile 'com.github.deano2390:FlowTextView:2.0.5'
 
     //A TextView that automatically resizes text to fit perfectly within its bounds.@https://github.com/grantland/android-autofittextview
-    compile 'me.grantland:autofittextview:0.2.+'
+    compile 'me.grantland:autofittextview:0.2.1'
 
     //Android平台的导航控件@https://github.com/HomHomLin/AdvancedPagerSlidingTabStrip
     compile 'homhomlin.lib:apsts:1.8.0'
