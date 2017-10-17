@@ -2,7 +2,6 @@ package com.android.upgrade;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 
 import com.tencent.bugly.Bugly;
 
@@ -13,8 +12,8 @@ import com.tencent.bugly.Bugly;
 public class MainActivity extends Activity {
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         //bugly自动升级初始化
         Bugly.init(getApplicationContext(), "f68be3afe7", false);
     }
