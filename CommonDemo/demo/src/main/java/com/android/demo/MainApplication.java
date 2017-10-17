@@ -2,6 +2,7 @@ package com.android.demo;
 
 import android.app.Application;
 
+import com.android.demo.service.DataTransferClient;
 import com.squareup.leakcanary.LeakCanary;
 
 /**
@@ -20,5 +21,7 @@ public class MainApplication extends Application {
             return;
         }
         LeakCanary.install(this);
+
+        DataTransferClient.getInstance().connectService(this);
     }
 }

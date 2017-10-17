@@ -3,6 +3,7 @@
     package="com.android.demo">
 
     <application
+        android:name=".MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -69,6 +70,16 @@
         <activity
             android:name=".activity.list.SlidingTabViewActivity"
             android:label="SlidingTabViewActivity"
+            android:alwaysRetainTaskState="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.demo.list" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.list.AIDLSimpleActivity"
+            android:label="AIDLSimpleActivity"
             android:alwaysRetainTaskState="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
