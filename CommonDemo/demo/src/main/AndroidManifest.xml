@@ -86,6 +86,16 @@
                 <category android:name="com.android.demo.list" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activity.list.ExpandActivity"
+            android:label="ExpandActivity"
+            android:alwaysRetainTaskState="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.demo.list" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
