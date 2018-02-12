@@ -32,6 +32,7 @@ public class SensorDataCollectActivity extends BaseActivity {
 
     private LocationManager locationManager;
     private String provider;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,30 +54,26 @@ public class SensorDataCollectActivity extends BaseActivity {
     }
 
     private void initLocationManager() {
-
         L.v();
         if (!checkPermission()) {
             return;
         }
         // 获取系统LocationManager服务
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        if(locationManager == null){
+        if (locationManager == null) {
             L.v("locationManager is null.");
             return;
         }
         //获取当前可用的位置控制器
         List<String> list = locationManager.getProviders(true);
-
         if (list.contains(LocationManager.GPS_PROVIDER)) {
             //是否为GPS位置控制器
             provider = LocationManager.GPS_PROVIDER;
-        }
-        else if (list.contains(LocationManager.NETWORK_PROVIDER)) {
+        } else if (list.contains(LocationManager.NETWORK_PROVIDER)) {
             //是否为网络位置控制器
             provider = LocationManager.NETWORK_PROVIDER;
-
         } else {
-            Toast.makeText(this, "请检查网络或GPS是否打开",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "请检查网络或GPS是否打开", Toast.LENGTH_LONG).show();
             return;
         }
         // 从GPS获取最近的定位信息
@@ -105,7 +102,6 @@ public class SensorDataCollectActivity extends BaseActivity {
                         }
                         // 当GPS LocationProvider可用时，更新位置
                         updateView(locationManager.getLastKnownLocation(provider));
-
                     }
 
                     @Override
@@ -123,9 +119,10 @@ public class SensorDataCollectActivity extends BaseActivity {
             //                                          int[] grantResults)
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
+            L.v(false);
             return false;
         }
-        L.v();
+        L.v(true);
         return true;
     }
 
@@ -154,8 +151,5 @@ public class SensorDataCollectActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (locationManager != null) {
-            //locationManager.removeUpdates(null);
-        }
     }
 }
