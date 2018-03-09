@@ -124,6 +124,16 @@
                 <category android:name="com.android.demo.list" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.list.StatusBarActivity"
+            android:label="StatusBarActivity"
+            android:alwaysRetainTaskState="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.demo.list" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
